@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+        <script>
+            // append() - 在被选元素的结尾插入内容
+            // prepend() - 在被选元素的开头插入内容
+            // after() - 在被选元素之后插入内容
+            // before() - 在被选元素之前插入内容
+
+            // append() 如果页面不存在的元素 新元素 添加到选择器内部的最后面
+            // 页面已经存在的元素 移动 先删除再追加
+            // 在ul里面增加新的 项
+            $("ul").append("<li>item 4</li>");
+
+            var item1 = $("ul")
+                .find("li")
+                .eq(0);
+            $("ul").append(item1);
+
+            $("ul").prepend("<li>item 0</li>");
+            // $('ul').prepend(item1)
+
+            // after选择器 同级后面 append追加到选择器 内部的最后面
+            $("ul").after("<li>item xxx</li>");
+            $("ul li").eq(0).after(item1)
+        </script>
+    </body>
+</html>

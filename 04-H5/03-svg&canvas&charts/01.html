@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #canvas {
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="300"></canvas>
+
+        <script>
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById("canvas");
+            // 获取canvas元素
+            var context = canvas.getContext("2d");
+            // 获取上下文
+
+            var arr = [87, 173, 230, 66, 110, 203, 55, 23];
+
+            var n = 0;
+
+            context.translate(30, 270);
+            function xxx() {
+                // 移动坐标轴
+
+                function drawXY() {
+                    // 画出坐标轴 xy
+                    context.moveTo(0, 0);
+                    context.lineTo(240, 0);
+                    context.stroke();
+                    context.moveTo(0, 0);
+                    context.lineTo(0, -240);
+                    context.stroke();
+                }
+                drawXY();
+
+                // context.fillRect(10, 0, 105, -87);
+                // context.fillRect(10 + 105 + 10, 0, 105, -173);
+
+                // 均分柱状图宽度
+                // 假设2个数据 间隔都是10
+                // (2+1)*10+x*2 = 240  x=(240-(2+1)*10)/2
+
+                function drawColumn(array) {
+                    var g = 10;
+                    var w = (240 - (array.length + 1) * g) / array.length;
+                    context.fillStyle = "orange";
+
+                    context.beginPath();
+                    array.forEach(function(element, index) {
+                        // 柱状图
+                        context.fillRect(g + (w + g) * index, 0, w, (-element / 100) * n);
+
+                        // 折线图
+                        if (index == 0) {
+                            context.moveTo(g + (w + g) * index + w / 2, -element);
+                        } else {
+                            context.lineTo(g + (w + g) * index + w / 2, -element);
+                        }
+                    });
+                    context.strokeStyle = "red";
+                    context.stroke();
+                    // context.closePath();
+                }
+                drawColumn(arr);
+            }
+
+            var id = setInterval(function() {
+                // context.translate(-30, -270);
+                context.clearRect(0, 0, 300, -300);
+
+                n++;
+                
+
+                xxx();
+
+                if (n >= 100) clearInterval(id);
+            }, 30);
+        </script>
+
+        <!-- d3.js echartsjs 图表可视化 -->
+        <!-- 小练习 https://www.jianshu.com/p/be11bcadbd46 安卓机器人 -->
+
+        <!-- 作业 canvas画图表  echartsjs使用5-7个 -->
+        <!-- 拓展 音乐可视化 https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API -->
+        <!-- svg -->
+    </body>
+</html>

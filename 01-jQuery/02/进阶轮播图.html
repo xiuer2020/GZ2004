@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.css" />
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+        <style>
+            .swiper {
+                width: 300px;
+                height: 180px;
+                background: red;
+                margin: 0 auto;
+                border: 2px solid red;
+                overflow: hidden;
+            }
+            .swiper-content {
+                /* width: 1200px; */
+            }
+            .swiper-content .swiper-item {
+                /* width: 100px;
+                height: 80px; */
+                float: left;
+
+                background-size: cover;
+                background-position: center;
+            }
+            .swiper-content .swiper-item.item1 {
+                background-image: url("./img/1.jpg");
+            }
+            .swiper-content .swiper-item.item2 {
+                background-image: url("./img/2.jpg");
+            }
+            .swiper-content .swiper-item.item3 {
+                background-image: url("./img/3.jpg");
+            }
+            .swiper-content .swiper-item.item4 {
+                background-image: url("./img/4.jpg");
+            }
+            .swiper-content .swiper-item.item5 {
+                background-image: url("./img/5.jpg");
+            }
+        </style>
+    </head>
+    <body>
+        <div class="swiper">
+            <ul class="swiper-content">
+                <li class="swiper-item item1">1</li>
+                <li class="swiper-item item2">2</li>
+                <li class="swiper-item item3">3</li>
+                <li class="swiper-item item4">4</li>
+                <li class="swiper-item item5">5</li>
+            </ul>
+        </div>
+        <script>
+            // 获取尺寸
+            var width = parseFloat($(".swiper").css("width"));
+            var height = parseFloat($(".swiper").css("height"));
+            // 设置item项
+            $(".swiper-content .swiper-item").css({
+                width: width + "px",
+                height: height + "px"
+            });
+
+            var itemsCount = $(".swiper-content .swiper-item").length;
+            $(".swiper-content").css("width", itemsCount * width + "px");
+            var current = 0;
+            function nextPic() {
+                if (current >= itemsCount - 1) {
+                    // 把第一个图片移动到最后面 前面位置腾开了 同时调整一下 marginleft
+                    $(".swiper-content").css("margin-left", (current - 1) * -width + "px");
+                    $(".swiper-content").append($(".swiper-content .swiper-item").eq(0));
+                } else {
+                    current++;
+                }
+                showPic();
+            }
+            function prevPic() {
+                if (current <= 0) {
+                    // 把最后一个图片移动到最前面 前面位置腾开了 同时调整一下 marginleft
+                    $(".swiper-content").css("margin-left", (current + 1) * -width + "px");
+                    $(".swiper-content").prepend($(".swiper-content .swiper-item").eq(itemsCount - 1));
+                } else {
+                    current--;
+                }
+                showPic();
+            }
+            function showPic() {
+                $(".swiper-content").animate({ marginLeft: current * -width + "px" }, 500);
+            }
+
+            // 练习 加上小点点
+
+            // 作业
+            // 表单美化 https://www.17sucai.com/preview/1/2016-12-20/radio/index.html
+            // 选项卡 https://www.17sucai.com/preview/1268063/2018-06-14/tab/index.html
+
+            // 拓展
+            // 小点点如果需要点击 当前点击的是哪一个小点点 $(this).index()
+
+            // 思考
+            // 小点点如果需要不按顺序点击
+            // 小点点不按顺序点完 又点下一张
+        </script>
+    </body>
+</html>

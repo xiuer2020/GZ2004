@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app2">
+            <ul>
+                <!-- <li v-for="todo in todos">{{msg}} - {{todo.text}}</li> -->
+                <li v-for="(todo,index) in todos">{{msg}} -{{index}}- {{todo.text}}</li>
+            </ul>
+
+            <hr />
+            <ul>
+                <!-- <li v-for="(value) in object">{{value}}</li> -->
+                <!-- <li v-for="(value, key) in object">{{key}}-{{value}}</li> -->
+                <li v-for="(value, key, index) in object">{{key}}-{{value}} -{{index}}</li>
+                <!-- 按 Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下都一致 -->
+            </ul>
+        </div>
+        <script>
+            var app2 = new Vue({
+                el: "#app2",
+                data: {
+                    msg: "hello ",
+                    todos: [
+                        {
+                            complated: true,
+                            text: "代办项1",
+                        },
+                        {
+                            complated: false,
+                            text: "代办项2",
+                        },
+                        {
+                            complated: false,
+                            text: "代办项3",
+                        },
+                    ],
+                    object: {
+                        title: "How to do lists in Vue",
+                        author: "Jane Doe",
+                        publishedAt: "2016-04-10",
+                    },
+                },
+            });
+        </script>
+
+        <div id="app">
+            <ul>
+                <template v-for="(item, index) in arr">
+                    <li :key="index" :class="{active: item==33?'active':''}">{{item}}</li>
+                    <!-- <li :class="{active: index==2}">{{item}}</li> -->
+                </template>
+                <!-- v-bind:key="item.id"  不能加在 template元素上-->
+            </ul>
+        </div>
+        <script>
+            // v-for 默认使用“就地更新”的策略
+            // 如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，
+            // 而是就地更新每个元素，并且确保它们在每个索引位置正确渲染
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    arr: [11, 22, 33, 44, 55],
+                },
+            });
+
+            // 请用字符串或数值类型的值
+            // 加key 状态和dom绑定起来 排序 性能低    
+            // 不加key 性能高 不绑定dom和状态 如果交换数组位置 dom 不换
+            // app.arr.push(app.arr.splice(2,1)[0])
+        </script>
+    </body>
+</html>

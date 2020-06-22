@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+        <script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <custom-input></custom-input>
+            <todo-list></todo-list>
+        </div>
+        <script>
+            var store = new Vuex.Store({
+                // ...
+                state: {
+                    todos: [
+                        {
+                            text: "111111",
+                            finished: false,
+                        },
+                        {
+                            text: "22222",
+                            finished: true,
+                        },
+                        {
+                            text: "3333",
+                            finished: false,
+                        },
+                    ],
+                },
+                mutations: {
+                    add: function (state, payload) {
+                        state.todos.push({
+                            text: payload.text,
+                            finished: false,
+                        });
+                    },
+                },
+            });
+
+            Vue.component("custom-input", {
+                template: `
+                <form>
+                    <input type="text" v-model="text">
+                    <input type="submit" @click.prevent='addTodo'>
+                </form>
+                `,
+                data: function () {
+                    return {
+                        text: "",
+                    };
+                },
+                methods: {
+                    addTodo: function () {
+                        // 
+                        this.$store.commit("add", {
+                            text: this.text,
+                            source: "submit",
+                        });
+                    },
+                },
+            });
+
+            Vue.component("todo-list", {
+                template: `
+                <ul>
+                    <todo-item v-for="(todo,index) in todos" :todo="todo" :key=index></todo-item>
+                </ul>
+                `,
+                computed: {
+                    todos: function () {
+                        return this.$store.state.todos;
+                    },
+                    finishedTodos: function () {
+                        return this.$store.state.todos.filter((todo) => todo.finished);
+                    },
+                },
+            });
+
+            Vue.component("todo-item", {
+                props: ["todo"],
+
+                template: `
+                <li :style="{textDecoration: todo.finished ? 'line-through': 'none'}">{{todo.text}}</li>
+                `,
+            });
+
+            new Vue({
+                el: "#app",
+                store,
+            });
+        </script>
+    </body>
+</html>

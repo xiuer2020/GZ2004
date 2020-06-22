@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="(item, index) in arr" :key="index">{{item}}</li>
+            </ul>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    arr: [11, 22, 33],
+                },
+            });
+
+            // 变异方法 会改变原始数组
+            // push()
+            // pop()
+            // shift()
+            // unshift()
+            // splice()
+            // sort()
+            // reverse()
+
+            app.arr.push(44);
+            app.arr.reverse();
+
+            // 非变异方法  不会改变原始数组 返回新数组
+            // filter()、concat() 和 slice()。
+            // 它们不会改变原始数组，而总是返回一个新数组。
+            app.arr.slice(0, 2);
+            app.arr.concat([66, 77, 88]);
+
+            // 解决非变异方法 视图不更新
+            // 重新赋值
+            // app.arr = app.arr.concat([66, 77, 88]);
+
+            var numbers = [11, 22, 33, 44, 55];
+            numbers.slice(0, 3);
+            numbers.concat([66, 77]);
+        </script>
+
+        <div id="app2">
+            <ul>
+                <li v-for="(item, index) in evenNumbers" :key="index">{{item}}</li>
+            </ul>
+        </div>
+        <script>
+            var app2 = new Vue({
+                el: "#app2",
+                data: {
+                    numbers: [1, 2, 3, 4, 5, 6, 7],
+                },
+                computed: {
+                    evenNumbers: function () {
+                        return this.numbers.filter((n) => n % 2 == 0);
+                    },
+                },
+            });
+
+            //
+            // app2.numbers.push(8)
+        </script>
+
+        <div id="app3">
+            <ul v-for="(set, setIndex) in sets" :key="setIndex">
+                <li v-for="(n, nIndex) in evenNumbers(set)" :key="nIndex">{{setIndex}}-{{nIndex}} {{n}}</li>
+            </ul>
+        </div>
+        <script>
+            var app3 = new Vue({
+                el: "#app3",
+                data: {
+                    sets: [
+                        [1, 2, 3, 4, 5],
+                        [6, 7, 8, 9, 10],
+                    ],
+                },
+                methods: {
+                    evenNumbers: function (numbers) {
+                        return numbers.filter((n) => n % 2 == 0);
+                    }
+                },
+            });
+
+
+        </script>
+    </body>
+</html>

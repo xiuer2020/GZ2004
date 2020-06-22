@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <custom-input :value="searchText" @c-input="onInput($event)"></custom-input>
+        </div>
+        <script>
+            Vue.component("custom-input", {
+                props: ["value"],
+                template: `
+                <div>
+                    <input type="text" :value="value" @input="$emit('c-input', $event.target.value)"/>
+                    <span>Search</span>
+                </div>
+                `,
+            });
+            // 组件模板里面 $emit('c-input', $event) $event事件对象
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    searchText: "hello",
+                },
+                methods: {
+                    onInput: function (v) {
+                        // 
+                        this.searchText = v;
+                    },
+                },
+            });
+        </script>
+
+        <!-- <div id="app">
+            <custom-input :value="searchText" @c-input="searchText=$event"></custom-input>
+        </div>
+        <script>
+            Vue.component("custom-input", {
+                props: ["value"],
+                data: function () {
+                    return {
+                        xxx: this.value,
+                    };
+                },
+                template: `
+                <div>
+                    <input type="text" v-model="xxx"/>
+                    <span>Search</span>
+                </div>
+                `,
+                watch: {
+                    xxx: function () {
+                        // 
+                        this.$emit("c-input", this.xxx);
+                    },
+                },
+            });
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    searchText: "hello",
+                },
+                methods: {},
+            });
+        </script> -->
+    </body>
+</html>

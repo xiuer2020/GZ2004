@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 回调 & promise 两个版本
+            // getDate 带参数 url请求路径 success error两个回调函数
+            function getData(url, success, error) {
+                // 返回 promise对象 以便支持promise
+                return new Promise((resolve, reject) => {
+                    // ajax
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            // 完成
+                            if (xhr.status === 200) {
+                                // 成功 处理数据
+                                if (success) success(xhr.response);
+                                resolve(xhr.response);
+                            } else {
+                                // 失败
+                                if (error) error(xhr);
+                                reject(xhr);
+                            }
+                        }
+                    };
+                    xhr.open("GET", url, true);
+                    xhr.send();
+                });
+            }
+        </script>
+
+        <!-- <button>btn</button>
+        <script>
+            document.querySelector("button").onclick = function () {
+                getData("./citys.json")
+                    .then(function (response) {
+                        
+                    })
+                    .catch(function (xhr) {
+                        
+                    });
+            };
+        </script> -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <div id="app">
+            <label>
+                <select name="" id="" @input='handleSelectProvince'>
+                    <option v-for="(province, index) in provinces" :key="index" :value="province.provinceName">
+                        {{province.provinceName}}
+                    </option>
+                </select>
+                <span>省</span>
+            </label>
+            <label>
+                <select name="" id="">
+                    <template v-if="provinces.length != 0">
+                        <option v-for="(city, index) in provinces[current].citys" :key="index" :value="city.citysName">
+                            {{city.citysName}}
+                        </option>
+                    </template>
+                </select>
+                <span>市</span>
+            </label>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    current: 0,
+                    provinces: [],
+                    // defaultProvince: ''
+                },
+                // computed: {
+                //     defaultProvince: function () {
+                //         if (this.provinces.length != 0) {
+                //             return this.provinces[0].provinceName;
+                //         }
+                //     },
+                // },
+                // 生命周期
+                beforeCreate() {
+                    // 
+                    getData("./citys.json").then((response) => {
+                        // 
+                        this.provinces = JSON.parse(response).provinces;
+                        // this.defaultProvince = this.provinces[0].provinceName
+                    });
+                },
+
+                methods: {
+                    
+                    handleSelectProvince: function (event) {
+                        // selectedIndex: 16
+                        // value: "广西壮族自治区"     
+                        
+                        // 根据下表选择城市
+                        this.current = event.target.selectedIndex
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>

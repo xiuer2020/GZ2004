@@ -1,0 +1,55 @@
+.loop(@n) when(@n > 0) {
+    .loop(@n - 1);
+    font-size: 1px * @n;
+}
+div {
+    .loop(5);
+}
+
+/* 12栅格 */
+
+/* .generate-columns(@n) when(@n > 0) {
+    .generate-columns(@n - 1);
+    .col-@{n} {
+        // font-size: 1px * @n;
+        width: @n / 12 * 100%;
+    }
+}
+.generate-columns(12); */
+
+/* .generate-columns(@n, @i:@n) when(@i > 0) {
+    .generate-columns(@n, @i - 1);
+    .col-@{i} {
+        // font-size: 1px * @i;
+        width: @i / @n * 100%;
+    }
+}
+.generate-columns(24); */
+
+@sm: 768px;
+@md: 992px;
+@lg: 1200px;
+
+.generate-columns(@n, @size: xs, @i:1) when(@i <= @n) {
+    .col-@{size}-@{i} {
+        // font-size: 1px * @i;
+        width: @i / @n * 100%;
+    }
+    .generate-columns(@n, @size, @i + 1);
+}
+// .generate-columns(24,xs);
+.generate-columns(12, xs);
+
+@media (min-width: @sm) {
+    .generate-columns(12, sm);
+}
+@media (min-width: @md) {
+    .generate-columns(12, md);
+}
+@media (min-width: @lg) {
+    .generate-columns(12, lg);
+}
+
+
+// css预处理语言
+// less sass stylus

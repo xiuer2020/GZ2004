@@ -1,0 +1,4 @@
+/* pages/find/find.wxss */
+.active {
+  color: red;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button>btn</button>
+        <p></p>
+        <script>
+
+            // 同步异步复习
+            document.getElementsByTagName("button")[0].onclick = getData;
+
+            function getData() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    // readyState 存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+                    // 0: 请求未初始化
+                    // 1: 服务器连接已建立
+                    // 2: 请求已接收
+                    // 3: 请求处理中
+                    // 4: 请求已完成，且响应已就绪 有可能服务器没找到结果
+
+                    // status	200: "OK"
+                    // 404: 未找到页面
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        
+                        //
+                        document.querySelector("p").innerHTML = xhr.response;
+                    }
+                };
+
+                xhr.open("GET", "./test.txt", true);
+                xhr.send();
+            }
+        </script>
+    </body>
+</html>

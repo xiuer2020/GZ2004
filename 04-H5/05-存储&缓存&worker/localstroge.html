@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // cookie 登陆认证 客户端保存信息 
+            // 客户端请求会自动带上cookie  4096
+            //     Firefox和Safari允许cookie多达4097个字节，包括名（name）、值（value）和等号。
+            // 　　Opera允许cookie多达4096个字节，包括：名（name）、值（value）和等号。
+            // 　　Internet Explorer允许cookie多达4095个字节，包括：名（name）、值（value）和等号。
+            // 访问纯图片静态文件 也会带上cookie 没意义 静态文件死的不会变的
+            // cdn静态文件分离 cookie污染
+
+            // 保存数据：localStorage.setItem(key,value);
+            // 读取数据：localStorage.getItem(key);
+            // 删除单个数据：localStorage.removeItem(key);
+            // 删除所有数据：localStorage.clear();
+            // 得到某个索引的key：localStorage.key(index);
+
+            // localStorage大小限制 5M  作用范围  同协议 同域名/IP 同端口 
+            // ajax 跨域策略 
+            // cookie 作用范围 多了path
+            
+            // 写入
+            localStorage.name = "nick";
+            localStorage.setItem("age", 17);
+
+            // 读取
+            
+            
+
+            // 删除
+            localStorage.removeItem("isOnline");
+
+            for (var i = 0; i < localStorage.length; i++) {
+                
+            }
+        </script>
+
+        <p>点击了<span>0</span>次</p>
+        <script>
+            document.querySelector("p").onclick = function() {
+                var count = localStorage.getItem("count");
+
+                if (count) {
+                    
+                    // 保存的值是字符串
+                    count++;
+                    // 隐式类型转换
+                } else {
+                    count = 1;
+                }
+
+                localStorage.setItem("count", count);
+
+                this.querySelector("span").innerText = localStorage.getItem("count");
+            };
+        </script>
+    </body>
+</html>

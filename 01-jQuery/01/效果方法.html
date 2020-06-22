@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+        <style>
+            .box {
+                width: 200px;
+                height: 100px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <button>btn</button>
+        <div class="box">box</div>
+
+        <script>
+            $("button").click(function() {
+                // show hide toggle 最终 display none
+                // 宽度 高度 opacity 都缩小
+                // $('.box').hide()
+                // $('.box').hide(2000)
+                // $('.box').hide(2000, function () {
+                //     
+                // })
+                // $('.box').toggle(2000, function () {
+                //     
+                // })
+
+                // slideUp slideDown slideToggle 滑动 最终 display none
+                // 高度 缩小放大
+                // $('.box').slideUp(2000, function(){
+                //     
+                // })
+                // $('.box').slideToggle(5000, function(){
+                //     
+                // })
+
+                // fadeIn fadeOut fadeToggle fadeTo
+                // opacity 变化
+
+                // $('.box').fadeOut(2000) 最终 display none
+                // $('.box').fadeToggle(2000)
+                // $(selector).fadeTo(speed,opacity,callback);
+                // 回调函数 一般都是最后一个
+                // $(".box").fadeTo(2000, 0.5, function() {
+                //     
+                // });
+            });
+        </script>
+
+        <!-- 作业* https://www.17sucai.com/pins/32574.html -->
+        <!-- 拓展 https://www.17sucai.com/pins/demo-show?id=33636 -->
+    </body>
+</html>

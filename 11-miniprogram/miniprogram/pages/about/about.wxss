@@ -1,0 +1,9 @@
+/* pages/about.wxss */
+
+map {
+  width: 100%;
+}
+
+input{
+  border: 1px solid red;
+}

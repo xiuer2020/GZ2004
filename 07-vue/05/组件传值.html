@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- <div id="app">
+            <blog-post title="My journey with Vue"></blog-post>
+            <blog-post title="Blogging with Vue"></blog-post>
+            <blog-post title="Why Vue is so fun"></blog-post>
+        </div>
+        <script>
+            Vue.component('blog-post', {
+                props: ['title'],
+                template: '<h3>{{title}}</h3>'
+            })
+
+            var app = new Vue({
+                el: "#app",
+                data: {},
+            });
+        </script> -->
+
+        <div id="app">
+            <!-- <blog-post :post="posts[0]"></blog-post>
+            <blog-post :post="posts[1]"></blog-post> -->
+            <blog-post v-for="(item, index) in posts" :key="index" :post="item"></blog-post>
+        </div>
+        <script>
+            Vue.component("blog-post", {
+                props: ["post"],
+                template: `
+                <div>
+                    <h3>{{post.title}}</h3>
+                    <div v-html='post.content'></div>
+                </div>
+                `,
+                // 有且只有一个根元素
+            });
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    posts: [
+                        { id: 1, title: "My journey with Vue" },
+                        { id: 2, title: "Blogging with Vue" },
+                        { id: 3, title: "Why Vue is so fun" },
+                        { id: 4, title: "How ary you" },
+                    ],
+                },
+            });
+        </script>
+    </body>
+</html>

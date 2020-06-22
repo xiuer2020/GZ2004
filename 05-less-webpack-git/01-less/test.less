@@ -1,0 +1,125 @@
+// 引入初始化 重置默认样式
+@import "./reset.less";
+
+body {
+    background: lightblue;
+    a {
+        color: blue;
+    }
+}
+
+// 变量当成css属性值
+@width: 10px;
+.box {
+    width: 100px;
+    height: 100px;
+    border: @width solid red;
+}
+
+// 变量当成选择器名 字符串变量
+@myname: banner;
+@images: "./assets/images";
+.@{myname} {
+    background: url("@{images}/xx.png");
+}
+
+/* 混入 定义的时候 加上括号 最终css 不包含定义的样式 */
+.backgrounded {
+    background: red;
+}
+/* bordered加了括号 不出来 类似js函数 */
+.bordered() {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+
+/* 混合带入参数  默认值*/
+.font-size(@size:12) {
+    font-size: "@{size}px";
+}
+
+.test {
+    .bordered;
+    .backgrounded;
+    .font-size;
+}
+.testA {
+    .bordered;
+    .backgrounded;
+    .font-size(16);
+}
+
+/* 混入选择器 默认值 */
+.hover(@size:1px, @color: red) {
+    &:hover {
+        border: @size solid @color;
+    }
+}
+
+.buttonA {
+    .hover;
+}
+.buttonB {
+    .hover(2px);
+}
+.buttonC {
+    .hover(0.1em, orange);
+}
+
+/* 命名空间 作用域 */
+#outer() {
+    .inner {
+        color: red;
+    }
+    // inner 函数作用域是在outer里面有效
+}
+
+.c {
+    // .inner; undefind
+    // #outer;
+    #outer > .inner();
+}
+
+// .my-optional-style() when (@my-option = true) {
+//     button {
+//         color: white;
+//     }
+// }
+// .my-optional-style();
+
+/* if条件判断 when */
+@my-option: true;
+button when (@my-option = true) {
+    color: white;
+}
+
+& when (@my-option = true) {
+    button {
+        color: white;
+    }
+    a {
+        color: blue;
+    }
+}
+
+/* for循环 递归 each */
+// 回顾css3 bootstrap 栅格系统
+.loop(@counter) when (@counter > 0) {
+    .loop((@counter - 1)); // next iteration
+    width: (10px * @counter); // code for each iteration
+}
+/* 
+var n = 5
+while(n > 0) {
+
+} 
+
+function xx(n) {
+    if(n>0) xx(n-1)
+}
+xx(5)
+
+*/
+div {
+    .loop(5); // launch the loop
+}

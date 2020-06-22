@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // ActiveXObject ie5 ie6 现在不考虑
+            // XMLHttpRequest 构造函数 xhr实例对象
+            var xhr = new XMLHttpRequest();
+            
+            // readyState 0
+
+            // onreadystatechange 事件 每当 readyState 属性改变时，就会调用该函数。
+            xhr.onreadystatechange = function() {
+                
+                if (xhr.readyState == '4' && xhr.status == '200') {
+                    // 请求已经完成 并且 服务器也找到了文件
+                    
+                    document.write(xhr.response)
+                }
+            };
+
+            // xmlhttp.open("Method","URL",同步异步);
+            // get /user?name=nick&age=17 query查询的形式 如果有密码不安全 url长度限制  速度快
+            // post /user url里面不带任何值 安全 不限制大小 速度慢
+            xhr.open("GET", "./test.txt", true);
+            
+            // readyState 1
+
+            xhr.send();
+
+            // setTimeout(function () {
+            //     
+            //     // readyState: 4 这个时候 接收到服务器返回的数据 ajax请求已经完成
+            // }, 3000);
+        </script>
+    </body>
+</html>

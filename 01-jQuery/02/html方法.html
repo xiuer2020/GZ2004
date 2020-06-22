@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="box boxA"><i>xxx</i></div>
+        <div class="box boxB"><i>yyy</i></div>
+        <input type="text" name="username" value="rere" />
+        <!-- value属性 只是 初始默认值 -->
+
+        <input type="radio" name="gender" value="男" />
+        <input type="radio" name="gender" value="女" checked />
+
+        <script>
+            
+            
+            
+
+            // $('.box').text('yyy')
+            // 标签当成字符串
+            // $('.box').text('<i>yyy</i>')
+
+            // $(".box").html("<b>yyy</b>");
+            $("input").val("vvvvvv");
+
+            // 属性
+            $(".box").attr("title");
+            $(".box").attr("title", "ccccccccc");
+            $("input").attr("type");
+            $("input").attr("value");
+            // 拿到的还是 rere
+            $("input").prop("value");
+            // 拿到的就是新的确切的表单值 vvvvvv
+
+            // attr 和 prop 的区别介绍：
+            // 对于 HTML 元素本身就带有的固有属性，在处理时，使用 prop 方法。
+            // 对于 HTML 元素我们自己自定义的 DOM 属性，在处理时，使用 attr 方法。
+            // 具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()
+
+            // prop attr 属性 表单里面 状态 是由浏览器管理 最终状态值用prop
+
+            $("input")
+                .eq(2)
+                .attr("checked"); // 不要用
+            $("input")
+                .eq(1)
+                .prop("checked");
+            $("input")
+                .eq(2)
+                .prop("checked");
+
+            // 函数返回值作为新的值
+            // var ov = $(".box").html();
+            // var nv = "<i>" + ov + "</i>";
+            // $(".box").html(nv)
+
+            // 针对选择器选择了多个dom元素 并且需要拿到原始值
+            // $(".box").html(function(index, currentContent) {
+            //     // 
+            //     $(".box")
+            //         .eq(index)
+            //         .html("<b>" + currentContent + "</b>");
+            // });
+            // $(".box").wrap('<b></b>')
+            // $(".box").wrapAll('<b></b>')
+            $(".box").wrapInner('<b></b>')
+            // html text val  attr prop
+            // $(selector).html()
+            // $(selector).html(value)
+            // $(selector).html(function(index,currentvalue))
+        </script>
+    </body>
+</html>

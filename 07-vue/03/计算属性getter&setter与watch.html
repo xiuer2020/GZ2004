@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- <div id="app">
+            <p>firstName: {{firstName}}</p>
+            <p>lastName: {{lastName}}</p>
+            <p>fullName: {{fullName}}</p>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    firstName: "Nicholas",
+                    lastName: "zhaosi",
+                    fullName: 'Nicholas zhaosi'
+                },
+
+                watch: {
+                    firstName: function (value) {
+                        this.fullName = value + ' ' + this.lastName
+                    },
+                    lastName: function (value) {
+                        this.fullName = this.firstName + ' ' + value
+                    },
+                },
+            });
+            app.lastName = "kaiqi";
+        </script> -->
+        <!-- 上面代码是命令式且重复的。 -->
+
+        <div id="app">
+            <p>firstName: {{firstName}}</p>
+            <p>lastName: {{lastName}}</p>
+            <p>fullName: {{fullName}}</p>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    firstName: "Nicholas",
+                    lastName: "zhaosi",
+                },
+
+                // 计算属性默认只有 getter
+                // computed: {
+                //     fullName: function () {
+                //         return this.firstName + " " + this.lastName;
+                //     },
+                // },
+
+                // getter &&& setter
+                computed: {
+                    fullName: {
+                        get: function () {
+                            return this.firstName + " " + this.lastName;
+                        },
+                        set: function (value) {
+                            // 
+                            this.firstName = value.split(' ')[0]
+                            this.lastName = value.split(' ')[1]
+                            
+                        }
+                    },
+                },
+            });
+            app.fullName = '史蒂夫 乔布斯'
+        </script>
+    </body>
+</html>

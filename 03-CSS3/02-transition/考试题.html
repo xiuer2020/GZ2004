@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var name = "world";
+            // 全局变量
+            (function() {
+                
+                // 变量提升 undefined
+                // typeof undefined  "undefined"
+                
+                if (typeof name == 'undefined') {
+                    // var name = "Jack";
+                    var name;
+                    // 变量提升不管条件真假
+                    name = "Jack";
+                    // 局部变量函数
+                    
+                } else {
+                    
+                }
+                
+                // 
+                // if (false) {
+                //     var name = 'jack'
+                // }
+                
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- <div id="demo">
+            <button @click="show = !show">Toggle</button><br />
+            <transition name="scale-fade">
+                <span v-if="show" style="background: red; display: inline-block; width: 100px; height: 100px;"
+                    >hello</span
+                >
+            </transition>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#demo",
+                data: {
+                    show: false,
+                },
+            });
+        </script>
+        <style>
+            #demo {
+                padding-left: 100px;
+                overflow: hidden;
+                background: lightblue;
+            }
+            .scale-fade-enter,
+            .scale-fade-leave-to {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            .scale-fade-enter-active {
+                transition: all cubic-bezier(0.13, 0.28, 0.29, 1.45) 0.5s;
+            }
+            .scale-fade-leave-active {
+                transition: all cubic-bezier(0.63,-0.31, 0.9, 0.61) 0.5s;
+            }
+            .scale-fade-enter-to,
+            .scale-fade-leave {
+                transform: scale(1);
+                opacity: 1;
+            }
+        </style> -->
+
+        <div id="demo">
+            <button @click="show = !show">Toggle</button><br />
+            <transition
+                appear
+                name="scale-fade"
+                :duration="{ enter: 500, leave: 800 }"
+                @after-enter="xxx('undefind',yyy)"
+            >
+                <span v-if="show" style="background: red; display: inline-block; width: 100px; height: 100px;">
+                    hello</span
+                >
+            </transition>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#demo",
+                data: {
+                    show: true,
+                },
+                methods: {
+                    xxx: function (el, done) {
+                        
+                        done();
+                    },
+                    yyy: function () {
+                        
+                    },
+                },
+            });
+        </script>
+        <style>
+            #demo {
+                padding-left: 100px;
+                overflow: hidden;
+                background: lightblue;
+            }
+            .scale-fade-enter-active {
+                animation: scale-fade 5s linear;
+            }
+            .scale-fade-leave-active {
+                animation: scale-fade 5s linear reverse;
+            }
+            @keyframes scale-fade {
+                0% {
+                    transform: scale(0.5);
+                    opacity: 0;
+                }
+                70% {
+                    transform: scale(1.1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+        </style>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+        <style>
+            .subnav {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="nav">
+            <li>主菜单1</li>
+            <li>
+                主菜单2
+                <ul class="subnav">
+                    <li>菜单11</li>
+                    <li>菜单11</li>
+                    <li>菜单11</li>
+                </ul>
+            </li>
+            <li>主菜单3</li>
+            <li>
+                主菜单4
+                <ul class="subnav">
+                    <li>菜单22</li>
+                    <li>菜单22</li>
+                    <li>菜单22</li>
+                </ul>
+            </li>
+        </ul>
+        <!-- <script>
+            var lis = document.querySelectorAll(".nav>li");
+            lis.forEach(function(li, index) {
+                li.onclick = function() {
+                    // 
+                    var subnav = this.getElementsByClassName("subnav")[0];
+                    // 需要判断 当前主菜单有没有子菜单 如果没有 使用style方法 会报错
+                    if (subnav) {
+                        if (subnav.style.display === "block") {
+                            this.getElementsByClassName("subnav")[0].style.display = "none";
+                        } else {
+                            this.getElementsByClassName("subnav")[0].style.display = "block";
+                        }
+                    }
+                };
+            });
+        </script> -->
+
+        <!-- <script>
+            $(".nav > li").click(function() {
+                // 
+                // $(selector).find(filter) 后代查找 遍历
+                // $(this).find('.subnav')
+                // 
+
+                // 可以获取css状态 判断 然后分情况处理
+                // hide() show() display none block
+
+                // 
+                // $(this).find('.subnav').show()
+                // $(this).find('.subnav').hide()
+
+                $(this)
+                    .find(".subnav")
+                    .toggle();
+                // 点击第一个的时候 $(this).find('.subnav') 肯定不存在 没有子菜单 jq没报错
+                // 如果选择的元素不存在 不会报错 调试困难 好在语法非常简单
+            });
+
+            // 选择器 $(css选择器)
+
+            // 操作.action()
+            // html方法 css() text('xx') html
+            // 效果方法 show hide toggle
+            // 事件 click hover ready
+            // 遍历方法  find(css选择器)后代里面找 .end siblings
+
+            // 链式语法
+            // $('.nav>li').css('color', 'red')
+            // $('.nav>li').css('background', 'orange')
+            // $('.nav>li').css('color', 'red').css('background', 'orange')
+
+            // 原理 jq方法执行完毕之后 这个方法 会返回原来（选择 遍历）的 jq对象
+            // 这个jq对象就又可以使用jq 方法
+        </script> -->
+        <script>
+            $("ul.nav li").click(function() {
+                // $('ul.nav li').find('.subnav').hide()
+                // $(this).find('.subnav').show()
+
+                // 把当前点击的元素的子菜单显示出来 然后把 其他的兄弟元素的子菜单 隐藏起来
+                $(this) // 当前点击
+                    .find(".subnav") // 子菜单
+                    .show()
+                    // .toggle()
+                    .end() //回退到 当前点击
+                    .siblings() // 当前点击的同级
+                    .find(".subnav")
+                    .hide();
+            });
+
+            // end() 结束当前链中最近的一次筛选操作，并把匹配元素集合返回到前一次的状态
+
+            // 1四个li主菜单 2取出第二个  3在第二个里面找子菜单 动作显示 返回操作的元素3
+            // $("ul.nav li").eq(1).find('.subnav').show() ==> find('.subnav')
+
+            // 1四个li主菜单 2取出第二个  3在第二个里面找子菜单 动作显示 返回操作的元素3 4end返回上一次查找筛选
+            // $("ul.nav li").eq(1).find('.subnav').show().end() ==> eq(1)
+
+            // $("ul.nav li").eq(1).find('.subnav').show().end().siblings()
+        </script>
+    </body>
+</html>

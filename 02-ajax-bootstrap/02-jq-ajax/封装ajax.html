@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <meta name="referrer" content="never" />
+        <!-- 解决图片防盗链 -->
+        <style>
+            img {
+                width: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="root"></div>
+        <button>btn</button>
+        <script>
+            // 封装的ajax方法 最后一个是回调函数 func
+            function getData(url, func) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // 处理数据
+                        func(xhr.response);
+                    }
+                };
+                xhr.open("GET", url, true);
+                xhr.send();
+            }
+
+            function handleData(data) {
+                // 什么时候会调用？
+                // 
+                JSON.parse(data).result.forEach(function(element) {
+                    
+                    var imgNode = document.createElement("img");
+                    imgNode.src = element.img;
+                    imgNode.onerror = function() {
+                        this.src = "https://www.runoob.com/images/compatible_chrome.gif";
+                    };
+                    document.querySelector(".root").appendChild(imgNode);
+                });
+            }
+            var page = 1;
+            // 回调写法
+            getData("https://api.apiopen.top/getImages?page=" + page, function(data) {
+                handleData(data);
+            });
+
+            document.querySelector("button").onclick = function() {
+                page++
+                getData("https://api.apiopen.top/getImages?page=" + page, function(data) {
+                    handleData(data);
+                });
+            };
+
+            // 拓展 模仿jq 的data参数
+        </script>
+    </body>
+</html>

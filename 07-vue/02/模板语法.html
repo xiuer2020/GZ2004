@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <p>Message: {{ msg }}</p>
+            <p v-once>用v-once 指令 {{msg}}</p>
+            <!-- 尽量避免使用 多人协作 -->
+
+            <p>{}会把所有内容当成字符串{{rawHtml}}</p>
+            <p v-text="rawHtml"></p>
+            <p v-html="rawHtml"></p>
+            <!-- XSS 攻击 绝不要对用户提供的内容使用插值 -->
+
+            <!-- xss演示 -->
+            <textarea type="text" v-model="userInput"></textarea>
+            <p v-html="userInput"></p>
+
+            <hr />
+            <div v-bind:class="classNames.join(' ')">v-bind</div>
+            <button disabled>btn</button>
+            <button v-bind:disabled="isButtonDisabled">btn2</button>
+            <!-- null undefined false -->
+
+            <hr />
+            <!-- 使用 JavaScript 表达式 -->
+            <p>{{ number + 1 }}</p>
+            <p>{{ ok ? 'YES' : 'NO' }}</p>
+
+            <p>原始的msg：{{msg}}</p>
+            <p>反转的msg：{{msg.split("").reverse().join("")}}</p>
+            <!-- 只能包含单个表达式 -->
+            <p>math:{{Math.random()}}</p>
+            <!-- Math Date -->
+
+            <hr>
+
+            <p v-if="seen">现在你看到我了</p>
+            <!-- 控制是否渲染dom元素 -->
+
+            <a v-on:click.prevent="clickHandle" href="http://www.baidu.com">百度</a>
+            <!-- 修饰符.prevent 相当于再 clickHandle 里面 event.preventDefault()-->
+
+            <!-- 指令简写 -->
+            <a v-bind:title="msg">v-bind</a>
+            <a :title="msg">v-bind简写</a>
+
+            <a v-on:click="clickHandle">v-on</a>
+            <a @click="clickHandle">v-on @简写</a>
+
+        </div>
+        <script>
+            let app = new Vue({
+                el: "#app",
+                data: {
+                    msg: "hello world",
+                    rawHtml: "<span style='color: red'>This should be red.</span>",
+                    userInput: "",
+                    classNames: ["test", "active"],
+                    isButtonDisabled: 45,
+
+                    number: 10,
+                    ok: false,
+                    seen: false
+                },
+                methods: {
+                    clickHandle: function () {
+                        
+                    }
+                },
+            });
+        </script>
+        <!-- <script>alert('xxx')</script> -->
+        <!-- <IMG SRC=javascript:alert('XSS') -->
+        <!-- <IMG SRC=http://3w.org/XSS/xss.js> -->
+        <!-- <SCRIPT SRC=http://3w.org/XSS/xss.js></SCRIPT> -->
+    </body>
+</html>
+<!-- 
+    v-if 控制DOM是否渲染
+    v-for ((item,index) in items)
+    v-on  v-on:click.prevent 修饰符  @click 简写
+
+    {{可以使用表达式 Math Date}}
+    v-text
+    v-once
+
+    v-html  => xss攻击
+
+    v-bind   v-bind:title  =>  :title简写
+    
+    数据驱动视图
+
+    尝试 轮播图 或者 之前 js 或者jq 小案例
+ -->

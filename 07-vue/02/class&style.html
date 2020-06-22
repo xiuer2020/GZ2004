@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .active {
+                border: 1px solid red;
+            }
+            .text-danger {
+                color: red;
+            }
+            .box {
+                background: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!-- class 对象语法 默认键值就是class类名 -->
+
+            <!-- 是否有 active 这个class名 取决于 isActive 的真假-->
+            <div :class="{ active: isActive }">{ active: isActive }</div>
+            <hr />
+
+            <!-- 普通写法 可以共存 -->
+            <div class="box" :class="{ active: isActive, 'text-danger': hasError }">
+                { active: isActive, 'text-danger': hasError }
+            </div>
+            <hr />
+
+            <!-- 动态样式对象 可以抽离出去 -->
+            <div class="box" :class="classObject">
+                classObject
+            </div>
+            <!-- 同样的，对象语法常常结合返回对象的计算属性使用 -->
+
+            <button @click="toggleIsActive">toggle isActive</button>
+            <hr />
+
+            <!-- class 数组语法 数组某项是个变量 变量的值 是class类名 -->
+            <!-- 自动拼合 -->
+            <div :class="['testA', 'testB', errorClass]">['testA', 'testB']</div>
+            <!-- 三元表达式 -->
+            <div :class="[isActive ? activeClass : '', 'testB']">[isActive ? activeClass : '', 'testB']</div>
+            <!-- 数组嵌套对象 -->
+            <div :class="[{activeClass: isActive}, 'testB', errorClass]">[{activeClass: isActive}, 'testB']</div>
+            <hr />
+
+            <!-- v-bind style 对象语法 -->
+            <!-- CSS 属性名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来) 来命名 -->
+
+            <div :style="{color: activeColor, fontSize: fontSize*2 + 'px'}">v-bind:style 的对象语法</div>
+            
+            <div :style="styleObject">v-bind:style 的对象语法</div>
+            <!-- 同样的，对象语法常常结合返回对象的计算属性使用 -->
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    isActive: false,
+                    hasError: true,
+                    classObject: {
+                        active: true,
+                        "text-danger": false,
+                    },
+                    activeClass: "active",
+                    errorClass: "text-danger",
+
+                    // style 对象
+                    activeColor: "orange",
+                    fontSize: 12,
+                    styleObject: {
+                        color: "blue",
+                        fontSize: "36px",
+                    },
+                },
+                methods: {
+                    toggleIsActive: function () {
+                        this.isActive = !this.isActive;
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

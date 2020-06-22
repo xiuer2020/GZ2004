@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+        <script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            var moudleA = {
+                state: () => ({ a: 100 }),
+                mutations: {
+                    changeA: function (state) {
+                        // 
+                        // 
+                        state.a += this.state.count;
+                    },
+                },
+                getters: {
+                    plusA: function (state, getters, rootState) {
+                        // 
+                        return state.a + rootState.count;
+                    },
+                },
+            };
+            var moudleB = {
+                // 带上命名空间 避免 不同模块的 mutations getters actions 同名冲突
+                // 访问 store.getters['yyy/plusB']
+                namespaced: true,
+                state: () => ({ a: 10 }),
+                mutations: {
+                    changeA: function (state) {
+                        state.a++;
+                    },
+                },
+                getters: {
+                    plusB: function (state) {
+                        return state.a * 2;
+                    },
+                },
+            };
+
+            var store = new Vuex.Store({
+                state: {
+                    count: 50,
+                },
+                getters: {},
+                mutations: {},
+                actions: {},
+                modules: {
+                    xxx: moudleA,
+                    yyy: moudleB,
+                },
+            });
+
+            new Vue({
+                el: "#app",
+                store,
+            });
+
+            // 默认情况下，模块内部的 action、mutation 和 getter 是注册在全局命名空间
+            // ——这样使得多个模块能够对同一 mutation 或 action 作出响应。
+            // 提交模块里面的 mutations
+            // store.commit('changeA')
+
+            // store.getters.plusA
+
+
+            // ui框架 vant element ant-design
+        </script>
+    </body>
+</html>

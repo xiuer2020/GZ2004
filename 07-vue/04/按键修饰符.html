@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- <div id="app">
+            <input type="text" @keyup='keyupHandle'/>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                methods: {
+                    keyupHandle: function (event) {
+                        // 
+                        if (event.code == 'Enter') {
+                            
+                        }
+                    },
+                },
+            });
+        </script> -->
+
+        <!-- 按键修饰符 确切某个键 -->
+        <!-- .enter
+.tab
+.delete (捕获“删除”和“退格”键)
+.esc
+.space
+.up
+.down
+.left
+.right -->
+        <div id="app">
+            <input type="text" @keyup.up="keyupHandle" />
+            <input type="text" @keyup.ctrl.enter="keyupHandle" />
+            <input type="text" @keyup.ctrl.67="forbidCopy" />
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                methods: {
+                    keyupHandle: function (event) {
+                        
+                    },
+                    forbidCopy: function () {
+                        window.alert('请尊重版权')
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>

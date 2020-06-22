@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cn.vuejs.org/js/vue.js"></script>
+        <script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <button @click="clickHandle">Action</button>
+        </div>
+        <script>
+            var store = new Vuex.Store({
+                state: {
+                    count: 0,
+                },
+                mutations: {
+                    // commit 只能是同步函数
+                    incrementMutation: function (state, n) {
+                        state.count += n;
+                    },
+
+                    // 异步方法
+                    // incrementMutation: function (state) {
+                    //     setTimeout(() => {
+                    //         state.count++;
+                    //     }, 3000);
+                    // },
+                },
+                actions: {
+                    // dispatch
+                    incrementAction: function (context, n) {
+                        // context.commit("incrementMutation");
+
+                        setTimeout(() => {
+                            context.commit("incrementMutation", n);
+                        }, 3000);
+                    },
+                },
+            });
+
+            new Vue({
+                el: "#app",
+                store,
+                methods: {
+                    clickHandle: function () {
+                        // 直接提交 mutations
+                        // this.$store.commit("incrementMutation");
+
+                        // 分发actions
+                        this.$store.dispatch("incrementAction", 3);
+                    },
+                },
+            });
+        </script>
+
+        <!-- 淘宝搜索建议 vuex -->
+    </body>
+</html>

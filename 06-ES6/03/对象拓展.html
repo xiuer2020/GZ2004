@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <script>
+            /* 对象简写 */
+            // 直接写入变量和函数，作为对象的属性和方法
+
+            let a = 10;
+            let o = { a };
+            // let o = { a: a };
+
+            let age = 17;
+            let obj = {
+                name: "nick",
+                age,
+                // age: age
+                // greet: function () {
+                //     return "hello";
+                // },
+                greet() {
+                    return "hello";
+                },
+            };
+
+            class Dot {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+                print() {
+                    return [this.x, this.y];
+                }
+            }
+
+            /* es5 */
+            obj["a" + "bc"] = 123;
+            /* 表达式作为属性名 es6 */
+            let propKey = "foo";
+            let obj = {
+                [propKey]: true,
+                ["a" + "bc"]: 123,
+            };
+        </script> -->
+
+        <script>
+            /* Object属性可枚举性 */
+            function Dot() {
+                this.name = "nick";
+                this.age = 17;
+                // 实例对象上某个方法
+                this.greet = function () {
+                    return this.name;
+                };
+            }
+            // speak 是挂载到 Dot.prototype的 一个方法
+            Dot.prototype.speak = function () {
+                return this.name;
+            };
+            Dot.prototype.school = "红星小学";
+
+            var obj = new Dot();
+            var obj1 = new Dot();
+
+            // obj.greet == obj1.greet // false
+            // obj.speak == obj1.speak // true
+
+            // for...in循环：只遍历对象自身的和继承的可枚举的属性。 __proto__
+            // Object.keys()：返回对象自身的所有可枚举的属性的键名。不包含__proto__
+            // JSON.stringify()：只串行化(序列化)对象自身的可枚举的属性。属性
+            // Object.assign()： 忽略enumerable为false的属性，
+            // 只拷贝对象自身的可枚举的属性。Object.keys
+
+            // Object.getOwnPropertyDescriptor方法可以获取该属性的描述对象
+            Object.getOwnPropertyDescriptor(obj, "name"); // true
+            Object.getOwnPropertyDescriptor(obj, "greet"); //true
+            Object.getOwnPropertyDescriptor(obj, "speak"); // false
+            Object.getOwnPropertyDescriptor(obj, "school"); // false
+            Object.getOwnPropertyNames(obj);
+
+            // 返回 对象 某个属性是否是自身的 而不是继承的
+            obj.hasOwnProperty("name");
+            obj.hasOwnProperty("greet");
+            obj.hasOwnProperty("school");
+
+            
+            
+
+            //
+            for (key in obj) {
+                
+            }
+
+            
+            
+
+            
+            // 对象深拷贝 => 数组深拷贝
+            
+
+            var o = {
+                name: "marry",
+            };
+            for (key in o) {
+                // if (o.hasOwnProperty(key)) {
+                //     const element = object[key];
+
+                // }
+                
+            }
+
+            // 面试题
+            var f = function () {};
+
+            f.__proto__.__proto__.__proto__;
+            f.__proto__.__proto__;
+            f.__proto__;
+        </script>
+
+        <script>
+            let ooo = { x: 1, y: 2, a: 3, b: 4 };
+            // let { x, y, ...z } = ooo
+
+            // 拓展运算符 解构赋值
+            // 实现深拷贝
+            let { ...other } = ooo;
+            // 拓展运算符 展开对象
+            let another = { ...ooo, ...{xxx: "123"} };
+
+
+            // ...5种
+            // 1 数组解构赋值
+            // ---数组拓展运算符
+            // 2 对象解构赋值
+            // 3 ...rest参数
+            // 4 ...对象拓展运算符 展开对象
+
+            // https://es6.ruanyifeng.com/#docs/array
+        </script>
+    </body>
+</html>

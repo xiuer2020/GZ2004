@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <meta name="referrer" content="never" />
+        <!-- 解决图片防盗链 -->
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+        <style>
+            .root img {
+                width: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 图片防盗链 403 (Forbidden) -->
+        <!-- <img src="http://ww4.sinaimg.cn/large/610dc034gw1fa0ppsw0a7j20u00u0thp.jpg" alt=""> -->
+        <div class="root">
+            <!-- <img src="./xx.png" /> -->
+        </div>
+        <button>btn</button>
+        <!-- 小练习 点击btn 不断加载下一页 -->
+
+        <script>
+            $.get("https://api.apiopen.top/getImages", { page: 0, count: 20 }, function(data, textStatus, jqXHR) {
+                
+                data.result.forEach(function(element) {
+                    if (element.img.search(/(clouddn|lijinshan)/i) === -1) {
+                        var $img = $("<img src=" + element.img + " />")
+                        
+                        $img.on('error',function () {
+                            $(this).attr('src', 'https://www.runoob.com/images/compatible_chrome.gif')
+                        })
+                        $(".root").append($img);
+                    }
+                });
+            });
+
+            
+        </script>
+
+        <!-- https://www.apiopen.top/api.html#feb14cd9ff0a4e4e9eda897858f30f21 -->
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #canvas {
+                border: 1px solid red;
+                /* width: 100px; */
+                
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <script>
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById("canvas");
+            // 获取canvas元素
+            var context = canvas.getContext("2d");
+            // 获取上下文
+
+            // context.fillRect(0, 0, 200, 50);
+            // context.rotate((1 / 2) * Math.PI);
+
+            // context.translate(50, 15)
+            // // 移动中心点  默认左上角
+            // // context.rotate((45 * Math.PI) / 180);
+            // context.rotate((1 / 2) * Math.PI);
+            // // 旋转 弧度
+            // context.fillRect(-50, -15, 100, 30);
+            // // 注意移动之后 使用新坐标系
+
+            // 交叉格子
+            // for (var i = 0; i < canvas.width / 10; i++) {
+            //     // context.fillStyle = 'orange'
+            //     context.fillRect(i * 10, i * 10, 10, 10);
+            //     context.fillRect(canvas.width - (i + 1) * 10, i * 10, 10, 10);
+            // }
+
+            // 棋盘格
+            // var size = 50
+            // for (var i = 0; i < 300 / size; i++) {
+            //     for (var j = 0; j < 200 / size; j++) {
+            //         if (j % 2) {
+            //             if (i % 2) {
+            //                 context.fillRect(i * size, j * size, size, size);
+            //             }
+            //         } else {
+            //             if (!(i % 2)) {
+            //                 context.fillRect(i * size, j * size, size, size);
+            //             }
+            //         }
+            //     }
+            // }
+
+            //
+
+            context.translate(150, 150);
+            context.rotate((-1 / 2) * Math.PI);
+
+            var x = 0;
+            var id = setInterval(function() {
+                x += 1;
+
+                context.clearRect(-150, -150, 300, 300);
+                // 清空画布
+                context.beginPath();
+                // context.moveTo(150, 150);
+                // context.arc(150, 150, 100, (-1 / 2) * Math.PI, (((3 / 2) * Math.PI) / 100) * x);
+
+                context.moveTo(0, 0);
+                context.arc(0, 0, (100 / 90) * x, 0, ((2 * Math.PI) / 100) * x);
+
+                context.fillStyle = "orange";
+                context.fill();
+                context.strokeStyle = "red";
+                context.lineWidth = 50;
+                // context.stroke();
+
+                context.closePath();
+
+                if (x >= 90) {
+                    clearInterval(id);
+                }
+            }, 30);
+        </script>
+    </body>
+</html>

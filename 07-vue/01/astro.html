@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="./astro.js"></script>
+
+        <style>
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            ul li {
+                flex-basis: 16%;
+                flex-grow: 1;
+                display: flex;
+                background: lightblue;
+                align-items: center;
+            }
+            ul li img {
+            }
+            ul li .desc {
+                flex: 1;
+            }
+            h3,h5 {
+                margin: 0;
+                font-size: 14px;
+            }
+            h3 {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <!-- <li>
+                    <img src="http://api.jisuapi.com/astro/static/images/baiyang.png" alt="" />
+                    <div class="desc">
+                        <h3>白羊座</h3>
+                        <h5>3-21~4-19</h5>
+                    </div>
+                </li> -->
+                <li v-for="astro in astros" v-bind:data-astroid="astro.astroid">
+                    <img v-bind:src="astro.pic" alt="" />
+                    <div class="desc">
+                        <h3>{{astro.astroname}}</h3>
+                        <h5>{{astro.date}}</h5>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+        <script>
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    astros: result.result
+                }
+            })
+        </script>
+
+    </body>
+</html>
+
+<!-- 
+    {{}}
+    v-bind:title
+    v-if
+    v-for (item in items)
+
+ -->

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 不同域[默认]会跨域  -->
+        <!-- 天气预报 一yi情信息 【郭嘉发布】 jsonp -->
+
+        <!-- <script>
+            // json {xx:xxx}
+            // jsonp xx({xx:xxx})
+
+            // https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=xxx 返回的结果R
+            // xxx(["customername1","customername2"])
+            // xxx是函数 括号里面的就是参数 把整个文件R当成一个js文件
+            function xx(params) {
+                
+            }
+
+            // xx(0)
+        </script> -->
+
+        <!-- <script src="./jsonp.js"></script> -->
+        <!-- <script src="https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=xx"></script> -->
+
+        <!-- <script>
+            function xx(params) {
+                
+            }
+        </script> -->
+        <!-- <script src="https://api.jisuapi.com/astro/fortune?astroid=1&appkey=f6212d5b9bcff4ef&callback=xx"></script> -->
+        <!-- jsonp 不是ajax 根ajax没关系  帮助解决ajax跨域问题的一种方式 -->
+        <!-- 练习 点击按钮的时候再创建jsonp连接 -->
+
+        <button>btn</button>
+        <div class="root"></div>
+        <script>
+            var name = "jsonp" + Date.now();
+            var xx = function (params) {
+                
+            };
+
+            // 封装jsonp方法
+            function jsonp(url, callback) {
+                // 把字符串当成函数名
+                var name = "jsonp" + Date.now();
+                // 
+                // var obj = {}
+                // obj[name]=function () {
+
+                // }
+
+                // window[name] = function(params) {
+                //     
+                // };
+                // 
+
+                // ES5
+                // window[name] = callback;
+                // ES6
+                Object.assign(window, { [name]: callback });
+
+                var node = document.createElement("script");
+                node.src = url + "&callback=" + name;
+                document.body.appendChild(node);
+            }
+
+            document.querySelector("button").onclick = function () {
+                jsonp("https://api.jisuapi.com/astro/fortune?astroid=1&appkey=f6212d5b9bcff4ef", function (params) {
+                    // 
+                    // 处理数据
+                    document.querySelector(".root").innerText = params.result.today.presummary;
+                });
+            };
+
+            //$.get(url, callback)
+            // jsonp(url, callback)
+            jsonp("https://api.jisuapi.com/astro/fortune?astroid=5&appkey=f6212d5b9bcff4ef", function (response) {
+                
+            });
+            // 回调函数
+            // 可以理解为 一个函数M的参数是一个函数C 然后再函数M里面调用函数M的参数形参
+            // 函数C作为函数M的实参
+
+            // 作业 使用jquery ajax方法完成星座运势
+            // 理解jsonp原理
+            // 拓展 二级联动
+
+            // 拓展 尝试封装 jsonp函数
+        </script>
+    </body>
+</html>
