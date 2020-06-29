@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 封装计算器
+			// 方法一:
+			function  calculator(a,b,c){
+				switch(c){
+					case '+':
+					// return可以返回表达式
+						return a+b;
+					break;
+					case '-':
+						return a-b;
+					break;
+					case '*':
+						return a*b;
+					break;
+					case '/':
+						return a/b;
+					break;
+					default:
+						return '该运算我还不会哟！'
+					break;
+				}
+			}
+			var res = calculator(3,8,'*')
+			
+		</script>
+	</body>
+</html>

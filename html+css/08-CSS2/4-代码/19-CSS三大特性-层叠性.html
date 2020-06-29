@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*CSS三大特性:层叠性,继承性,优先级*/
+		/*层叠性,指的是样式的叠加*/
+		/*样式(css属性)冲突，遵循的原则是"就近"原则。 那个样式离着结构近，就执行那个样式。*/
+
+		/*样式(css属性)不冲突，不会层叠*/
+
+		/*css的层叠性：同一个元素的同一个属性，后面的样式会将起那么的样式覆盖，优先级高会将优先级低覆盖。*/
+		div{
+			color:red;
+			font-size:50px;
+		}
+		div{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<div>div的内容</div>
+</body>
+</html>

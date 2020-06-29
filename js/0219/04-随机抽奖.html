@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0;}
+			div.wrap{width:400px;height:250px;background:#ccc;margin:50px auto;text-align:center;}
+			div.wrap>.txt{width:400px;height:180px;background:lightblue;font:bolder 60px 微软雅黑;text-align:center;line-height:180px;}
+			div.wrap>button{width:80px;height:50px;margin:15px 10px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="txt" id="txt">孙悟空</div>
+			<button id="start">开始</button>
+			<button id="stop">停止</button>
+		</div>
+		
+		<script>
+			var start = document.getElementById('start');
+			var stop = document.getElementById('stop');
+			var txt = document.getElementById('txt');
+			
+			var hero = ['伽罗','后羿','亚瑟','程咬金','阿珂','孙悟空','猪八戒','铠','妲己','甄姬','黄忠','典韦','兰陵王'];
+			// var hero = ['伽罗','后羿','亚瑟'];
+			
+			var timer;
+			var index;
+			// 为开始按钮绑定点击事件
+			start.onclick = function(){
+				// 清除定时器  防止定时器叠加
+				clearInterval(timer);
+				// 判断数组是否已经被清空
+				if(hero.length==1){
+					txt.innerHTML = '抽奖已结束';
+					return
+				}
+				timer = setInterval(function(){
+					// 生成随机数
+					index = Math.floor(Math.random()*hero.length);
+					txt.innerHTML = hero[index];
+				},50)
+			}
+			
+			// 为结束按钮绑定点击事件
+			stop.onclick = function(){
+				// 清除定时器
+				clearInterval(timer);
+				// 
+				if(index != undefined){
+					// 将抽中的英雄删除
+					hero.splice(index,1);
+					index = undefined;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

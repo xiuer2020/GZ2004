@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*padding内填充,指得是内容到边框的距离*/
+		/*padding-top上填充*/
+		/*padding-bottom下填充*/
+		/*padding-left左填充*/
+		/*padding-right右填充*/
+		/*padding取值数值带px单位,只能正值*/
+
+		.div1{
+			width: 300px;
+			height: 30px;
+
+			background: pink;
+			border:2px solid blue;
+			padding-top: 10px;
+			padding-bottom: 20px;
+			padding-left: 50px;
+
+			text-align: right;
+			padding-right: 10px;
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+
+			/*padding简写方式*/
+			/*padding:一个值; 上下左右都是这个值*/
+			/*padding:10px;*/
+
+			/*padding:两个值; 第一个值是上下填充,第二个值是左右填充*/
+			/*padding:10px 20px;*/
+
+			/*padding:三个值;第一个值上填充,第二个值左右填充,第三个下填充*/
+			/*padding:10px 20px 30px;*/
+
+			/*padding:四个值; 上右下左,顺时针*/
+			padding:10px 20px 30px 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">今天星期五,明天我休息</div>
+	<br/>
+	<div class="div2">明天你们要自习,哈哈哈</div>
+</body>
+</html>

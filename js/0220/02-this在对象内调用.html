@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul{list-style:none;}
+			div{width:200px;height:200px;background:green;}
+			ul>li{width:300px;height:50px;background:lightblue;margin:1px 0px;line-height:50px;}
+		</style>
+	</head>
+	<body>
+		<div id="box" onclick="changeColor(this)"></div>
+		<ul>
+			<li>111111111111111</li>
+			<li>222222222222222</li>
+			<li>333333333333333</li>
+			<li>444444444444444</li>
+			<li>555555555555555</li>
+		</ul>
+		<h2>今天的天气很压抑</h2>
+		<script>
+			// 方式一:
+			var obj = {
+				name:'翠花',
+				age:18,
+				say:function(){
+					// 
+					// 
+					// 
+					
+				}
+			}
+			obj.say();
+			
+			// 方式二:在js的事件中,this指的就是当前事件绑定的对象
+			function changeColor(obj){
+				
+				obj.style.background = 'pink'
+			}
+			
+			// 方式三:(重点)
+			var oLi = document.getElementsByTagName('li');
+			for(var i=0;i<oLi.length;i++){
+				
+				// 函数会优先加载,但是只有在js侦测到点击时再触发
+				oLi[i].onclick = function(){
+					
+					// oLi[i].style.background = 'pink'//报错   oLi[i]不存在
+					
+					// 
+					this.style.background = 'orange'
+				}
+			}
+			
+			
+			//方式四:
+			var h2 = document.getElementsByTagName('h2')[0];
+			h2.onclick = function(){
+				
+				
+				// 将this赋值给一个变量或者一个对象的属性,使其能够在普通函数内使用
+				// (行业习惯使用that  _this )
+				var that = this;
+				
+				// 使用定时器,过1秒改变h2的内容
+				setTimeout(function(){
+					
+					
+					that.innerHTML = '待阳光明媚，我们出门可好';
+				},1000)	
+			}
+			
+		</script>
+	</body>
+</html>

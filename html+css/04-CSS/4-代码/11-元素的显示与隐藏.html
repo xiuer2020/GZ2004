@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.father{
+			width: 500px;
+			height: 500px;
+			background: skyblue;
+		}
+		.father .son1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*隐藏元素使用的是 display:none; */
+			/*整个元素被隐藏了,不占位置,后面会上来*/
+			display: none;
+		}
+
+		/*鼠标移上.father以后, .son1对应的样式 */
+		.father:hover .son1{
+			/*显示元素 display:block;*/
+			display: block;
+		}
+
+		.father .son2{
+			width: 200px;
+			height: 200px;
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	<!-- >代表嵌套关系   +代表同级关系(兄弟关系) -->
+	<!-- .father>.son1+.son2 -->
+	<div class="father">
+		<div class="son1">father的里面son1</div>
+		<div class="son2">father的里面son2</div>
+	</div>
+</body>
+</html>

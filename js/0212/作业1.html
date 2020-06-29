@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr = [20,45,98,33,10,8,43,76,88,34,20,50,66];
+			function fun(arr){
+				// 
+				var newArr = [];
+				for(var i=0;i<arr.length;i++){
+					// 
+					
+					// 判断数组中的值是否小于50
+					if(arr[i]<50){
+						// 
+						// newArr[newArr.length] = arr[i];
+						
+						newArr.push(arr[i])
+					}
+				}
+				
+				return newArr;
+			}
+			
+			var res = fun(arr)
+			
+		</script>
+	</body>
+</html>

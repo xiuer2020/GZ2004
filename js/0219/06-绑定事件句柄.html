@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{width:300px;height:200px;background:green;}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			var box = document.getElementById('box');
+			function listener(){
+				
+			}
+			
+			function listener2(){
+				
+			}
+			// addEventListener()绑定事件时事件名不需要写'on'  可以同时绑定多个事件,同一事件可以绑定多个监听器
+			
+			box.addEventListener('click',listener,false);
+			box.addEventListener('click',listener2,false)
+			
+			// 移除事件removeEventListener(eventName,listener)
+			setTimeout(function(){
+				// 移除指定事件的监听器
+				box.removeEventListener('click',listener)
+			},2000)
+		</script>
+	</body>
+</html>

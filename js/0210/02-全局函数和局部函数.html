@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function outside(){
+				
+				var num = 10;
+				
+				// function inside(){
+				// 	
+				// }
+				
+				// inside为局部变量,不能再函数外使用
+				var inside = function(){
+					
+				}
+				
+				
+				// 此处可以调用
+				inside();//希望我们早点可以出门
+			}
+			
+			outside()
+			
+			// 局部变量不能再其作用域之外访问
+			// 
+			
+			inside()//inside is not defined
+		</script>
+	</body>
+</html>

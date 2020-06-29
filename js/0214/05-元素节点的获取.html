@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap">
+			<p id="one">情人节送什么花</p>
+			<p class="two">送菊花</p>
+			<p>随便花</p>
+			<p name="four">玫瑰花</p>
+		</div>
+		<div class="content">
+			<p>荷花</p>
+			<p>肥皂花</p>
+		</div>
+		<script>
+			// 通过id名获取
+			var one = document.getElementById('one');
+			
+			
+			// 通过class类名获取标签,以数组的方式返回
+			var two = document.getElementsByClassName('two');
+			
+			
+			// 通过数组的取值,找到对应的元素
+			
+			
+			// 通过标签名获取
+			var oP = document.getElementsByTagName('p');
+			
+			
+			// 通过name获取元素
+			var four = document.getElementsByName('four')[0];
+			
+			
+			var content = document.getElementsByClassName('content')[0];
+			
+			
+			var p = content.getElementsByTagName('p')//[p, p]
+			
+			
+			// 简写  
+			var p = document.getElementsByClassName('content')[0].getElementsByTagName('p');
+			
+			
+		</script>
+	</body>
+</html>

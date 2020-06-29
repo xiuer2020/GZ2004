@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*定位 = 定位模式 + 偏移量*/
+		/*偏移量用来干嘛的?主要用于描述位置距离的*/
+		/*偏移量对应有4个属性*/
+		/*top    : 距离上面的距离*/
+		/*bottom : 距离下面的距离*/
+		/*left   : 距离左边的距离*/
+		/*right  : 距离右边的距离*/
+		/*偏移量取值数值带px单位 允许负值 或者 百分比 */
+		/*偏移量对默认的定位方式无效,默认定位方式是静态定位 position:static*/
+		div{
+			width: 200px;
+			height: 200px;
+			background: red;
+			/*先使用绝对定位 position:absolute;*/
+			position: absolute;
+
+			/*top:100px;*/
+			/*left: 100px;*/
+
+			/*top: -5px;*/
+			/*left: -20px;*/
+
+			/*right: 100px;*/
+			/*bottom: 50px;*/
+
+			/*同时设置left跟right偏移量,只有left有效,所以平时使用的时候,只设置left或者right一边*/
+			/* right: 200px;
+			left: 100px; */
+			
+			/*同时设置top跟bottom偏移量,只有top有效,所以平时使用的时候,只设置top或者bottom一边*/
+			/* bottom:200px;
+			top: 50px; */
+
+			/*偏移量百分比取值  百分比的取值是相对父元素的*/
+			left: 50%;
+			top: 50%;
+		}		
+	</style>
+</head>
+<body>
+	<div>我是一颗小草</div>
+</body>
+</html>

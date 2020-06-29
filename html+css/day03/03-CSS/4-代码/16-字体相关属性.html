@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			/*font-size设置字体大小,取值数值带px单位,默认字体大小一般是16px*/
+			/*font-size:16px;*/
+			font-size:30px;
+			/*font-size:20px;*/
+			/*某些浏览器,对奇数数值字体大小,兼容不好,所以建议字体大小偶数值*/
+			/*0px的时候可以省略px*/
+
+			/*隐藏内容*/
+			/*font-size:0;*/
+		}
+		.div2{
+			/*font-weight设置字体是否加粗*/
+			/*取值*/
+			/*bold或者700    加粗,粗体*/
+			/*normal或者400  不加粗,正常字体*/
+			/*常用bold加粗字体*/
+
+			font-size:30px;
+			/*font-weight: bold;*/
+			font-weight: 700;
+		}
+		b{
+			/*font-weight: 400;*/
+			font-weight: normal;
+		}
+		.div3{
+			/*font-style设置字体是否倾斜*/
+			/*取值*/
+			/*italic  斜体*/
+			/*normal  正常字体,不倾斜*/
+			font-style:italic;
+		}
+		i{
+			font-style:normal;
+		}
+		.div4{
+			/*
+				font-family设置字体类型
+				取值:字体名称;
+				默认谷歌浏览器字体是微软雅黑
+				也有的默认浏览器字体是宋体
+
+				建议字体名称使用引号包裹
+			*/
+			/*font-family: 仿宋;*/
+			/*font-family: 楷体;*/
+			/*font-family: 等线;*/
+
+			/*font-family: "仿宋";*/
+
+			/*同时设置多种字体  每个字体名称之间使用逗号隔开 会从左到右依次匹配,匹配上了就直接使用;如果匹配不上,继续向右匹配*/
+			/*常用字体是微软雅黑跟宋体*/
+			font-family:"仿宋","楷体","宋体";
+		}
+	</style>
+</head>
+<body>
+	<!-- div[class=div$]{div$}*5 -->
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<b>我本加粗</b>
+	<div class="div3">div3的内容</div>
+	<i>我本倾斜</i>
+	<div class="div4">div4的内容</div>
+	<div class="div5" style="font-family: '仿宋'">div5的内容</div>
+</body>
+</html>

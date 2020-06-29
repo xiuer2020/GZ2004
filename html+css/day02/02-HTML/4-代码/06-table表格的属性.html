@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- table表格的属性,是设置table标签上 -->
+	<!-- border设置表格的边框,取值数值,不带px单位,默认0,0代表无边框 -->
+	<!-- bordercolor设置边框颜色 取值颜色值-->
+	<!-- align设置整个表格的水平对齐方式,取值left center right -->
+	<!-- width设置整个表格的宽度,取值数值或者百分比(相对父元素),不带px单位 默认由内容撑开-->
+	<!-- height设置整个表格的高度,取值数值或者百分比(相对父元素,但是父元素是body的时候,百分比无效),不带px单位 默认由内容撑开 -->
+	<!-- bgcolor设置整个表格背景颜色 取值颜色值 -->
+	<!-- background设置整个表格背景图片 取值 图片所在路径 背景图片会覆盖背景颜色-->
+	<!-- cellpadding设置的就是单元格内容到边框的距离 取值数值,默认不是0 -->
+	<!-- cellspacing设置单元格与单元格之间的距离  取值数值,默认不是0 -->
+	<!-- rules="all"合并边框线,设置更细的边框线 -->
+
+	<!-- <table border="1" bordercolor="blue" align="center" width="500" height="300" background="images/P_021.jpg" bgcolor="pink" > -->
+	<!-- <table border="1" align="center" cellpadding="10"> -->
+	<!-- <table border="1" align="center" cellspacing="20"> -->
+	<table border="1" align="center" rules="all" width="500" height="300">
+		<caption>学生信息表</caption>
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>年龄</th>
+		</tr>
+
+		<tr>
+			<td>张三</td>
+			<td>男</td>
+			<td>23</td>
+		</tr>
+		<tr>
+			<td>李四</td>
+			<td>男</td>
+			<td>24</td>
+		</tr>
+		<tr>
+			<td>王五</td>
+			<td>女</td>
+			<td>25</td>
+		</tr>
+		<tr>
+			<td>李狗蛋</td>
+			<td>男</td>
+			<td>26</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				font-size:20px;
+			}
+			span{
+				display:inline-block;
+				width:50px;
+				height:50px;
+				background:#000;
+				color:white;
+				font:bolder 30px 微软雅黑;
+				text-align:center;
+				line-height:50px;
+				border-radius:10px;
+			}
+			span#sec{background:red;}
+		</style>
+	</head>
+	<body>
+		<h2>距离情人节倒计时</h2>
+		<div><span id="day">01</span>天<span id="hours">03</span>时<span id="minu">40</span>分<span id="sec">36</span>秒</div>
+		<script>
+			/* 
+			拓展作业的思路：
+				1、获取活动截止时间
+				2、实时获取当前时间
+				3、计算时间差    截止时间-当前时间 = 时间差
+				4、通过时间差计算出天 小时 分钟 秒
+				5、将计算出的时间放到页面上
+			 */
+			// 获取标签
+			var sec = document.getElementById('sec');
+			var minu = document.getElementById('minu');
+			var hours = document.getElementById('hours');
+			var day = document.getElementById('day');
+			
+			// 获取截止时间
+			var endTime = new Date('2020/2/14 00:00:00');
+			
+			var timer = setInterval(function(){
+				// 获取当前时间
+				var startTime = new Date();
+				
+				// 计算时间差  单位:毫秒
+				time = endTime.getTime() - startTime.getTime();
+				
+				if(time>=0){
+					sec.innerHTML = Math.floor(time/1000%60);
+					
+					minu.innerHTML = Math.floor(time/1000/60%60);
+					
+					hours.innerHTML = Math.floor(time/1000/60/60%24)
+					
+					day.innerHTML = Math.floor(time/1000/60/60/24)
+				}else{
+					// 清除定时器
+					clearInterval(timer);
+				}
+			},1000);
+			
+		</script>
+	</body>
+</html>

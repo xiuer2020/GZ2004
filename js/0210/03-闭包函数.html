@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 闭包函数:内部函数在其作用域外被调用,则形成了内部函数的闭包
+			function outside(){
+				// function inside(){
+				// 	
+				// }
+				
+				//系统会认为已存在num变量,后面几次调用不会重新覆盖
+				var num = 100;
+				var inside = function(){
+					num++;
+					
+				}
+				
+				// 将整个函数作为返回值返回
+				return inside;
+				
+			}
+			
+			// 运行方式一:存在内存占用
+			// var res = outside()
+			// 
+			
+			// 调用返回的函数  
+			// num的值会一直保留在内存之中不会被释放,占内存
+			// res()//101
+			// res();//102
+			// res();//103
+			
+			// 运行方式二:
+			// var res = outside()
+			// res();//101
+			
+			// // 在第二次outside调用的时候，我们会讲res的返回值重新赋值
+			// var res = outside()
+			// res();//101
+			
+			// 运行方式三:手动将返回的变量赋值为null
+			var res = outside()
+			res()//101
+			
+			// 将返回值返回的函数进行清空,释放内存空间
+			res = null;
+			// var res = outside()
+			// res()//101
+					
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0}
+			ul{list-style:none;}
+			div.wrap{width:600px;height:400px;background:lightblue;margin:0 auto;}
+			div.wrap>ul{height:50px;}
+			div.wrap>ul>li{width:120px;height:50px;background:lightsalmon;text-align:center;line-height:50px;float:left;border-bottom:3px solid transparent;}
+			div.wrap>ul>li.active{border-bottom:3px solid red;}
+			
+			div.wrap>.content{width:600px;height:350px;background:lightgrey;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul>
+				<li class="active">生活日化</li>
+				<li>精美服饰</li>
+				<li>家具家电</li>
+				<li>装修材料</li>
+				<li>宠物生活</li>
+			</ul>
+			<div class="content"></div>
+		</div>
+		<script>
+			var oLi = document.getElementsByTagName('li');
+			
+			// 循环绑定事件
+			for(var i=0;i<oLi.length;i++){
+				
+				// 给每一个li元素绑定一个点击事件,当点击时,执行当前函数
+				oLi[i].onclick = function(){
+					// 清除所有的li的class属性
+					for(var j=0;j<oLi.length;j++){
+						// 
+						oLi[j].removeAttribute('class')
+					}
+					
+					// this代表的就是当前点击的对象
+					this.setAttribute('class','active')
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

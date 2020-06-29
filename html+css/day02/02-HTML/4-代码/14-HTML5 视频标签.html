@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- src视频的路径 -->
+	<!-- controls设置是否显示控件 -->
+	<!-- loop循环播放 单曲循环-->
+	<!-- autoplay自动播放 有兼容问题,不是所有浏览器都可以自动播放的 但是谷歌浏览器加上muted静音选项以后,就可以自动播放了-->
+	<!-- muted设置静音  -->
+	<!-- width设置宽度 -->
+	<!-- height设置高度 -->
+	<video src="media/cat.mp4" controls="controls" autoplay="autoplay" muted="muted" loop="loop" width="500" height="500"></video>
+
+	<!-- 多浏览器支持的方案 -->
+	<video controls="controls">
+		通过source标签指定多格式视频文件
+		<source src="media/cat.mp4"/>
+		<source src="media/cat.Ogg"/>
+		<source src="media/cat.webm"/>
+		您的浏览器不支持HTML视频播放功能
+	</video>
+</body>
+</html>

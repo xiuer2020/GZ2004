@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input{
+			/*去掉4个方向的边框*/
+			border:none;
+			border-bottom: 1px dashed orange;
+		}
+
+		/*分组选择器*/
+		input,textarea{
+			/*outline属性,一般用于设置input或者textarea获取焦点的时候,对应的外轮廓线,一般我们都是去掉外轮廓线 outline:none;*/
+			outline:none;
+		}
+	</style>
+</head>
+<body>
+	<form action="index.php" method="get">
+		<p><input type="text"/></p>
+		<p><textarea></textarea></p>
+	</form>
+</body>
+</html>

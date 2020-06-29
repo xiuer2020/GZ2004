@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+}
+img {
+  vertical-align: middle;
+}
+.w {
+  width: 1200px;
+  margin: 0 auto;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.top {
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0  110px;
+}
+.top ul.topLeft {
+  position: relative;
+}
+.top ul.topLeft li:nth-child(2) {
+  background: #ff0000;
+}
+.top ul.topLeft li:nth-child(2) .dnf {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+.top ul.topLeft li:nth-child(2):hover .dnf {
+  display: block;
+}
+ul.topRight {
+  height: 100%;
+  position: relative;
+}
+ul.topRight li {
+  height: 100%;
+  float: left;
+}
+ul.topRight li .paihangbang {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  display: none;
+}
+ul.topRight li:last-child:hover .paihangbang {
+  display: block;
+}
+.header {
+  height: 84px;
+  position: relative;
+}
+.header .main-nav {
+  height: 100%;
+}
+.header .main-nav li {
+  float: left;
+  width: 80px;
+  text-align: center;
+}
+.header .main-nav:hover ~ div.sub-nav {
+  display: block;
+  background: #ff0000;
+}
+.header .sub-nav {
+  display: none;
+  padding: 0 80px 0 130px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+.header .sub-nav li {
+  width: 80px;
+  float: left;
+}
+/*# sourceMappingURL=./1.css.map */

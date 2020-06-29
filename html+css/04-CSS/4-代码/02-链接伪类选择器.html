@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*链接伪类选择器就是给超链接设置的选择器*/
+		/*a:link未访问的链接状态*/
+		a:link{
+			color:red;
+			text-decoration: none;
+		}
+		/*a:visited访问过来的链接状态*/
+		a:visited{
+			color:skyblue;
+		}
+		/*a:hover鼠标移上a链接以后的样式*/
+		a:hover{
+			color:green;
+			text-decoration: underline;
+		}
+		/*a:active鼠标左键按下,不松开的样式*/
+		a:active{
+			color:orange;
+		}
+
+		/*注意：*/
+		/*超级链接的不同状态它其实是有顺序。也就是说锚伪类选择器设置其实是有顺序。*/
+		/*如果不按照锚伪类选择器的顺序，那么样式就会失效。*/
+		  /*顺序:	  :link   :visited  :hover   :actice*/
+		/*记忆:   要遵守“爱恨准则”要先有爱，才有恨。“Love  Hate”(也可以通过 lv是一个hao包包来记忆)*/
+	</style>
+</head>
+<body>
+	<a href="https://www.qq.com">腾讯</a>
+</body>
+</html>

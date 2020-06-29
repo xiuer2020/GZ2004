@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrap" id="wrap">
+			<p id="one">世界很美好</p>
+		</div>
+		<script>
+			// cloneNode()克隆节点
+			var one = document.getElementById('one')
+			
+			// cloneNode()只克隆标签和属性
+			var two = one.cloneNode()
+			
+			
+			var two = one.cloneNode(true)
+			
+			
+			// 若克隆的元素存在id属性,先修改其id的属性值,再添加到文档中
+			two.id = 'two';
+			var wrap = document.getElementById('wrap');
+			wrap.appendChild(two)
+		</script>
+	</body>
+</html>

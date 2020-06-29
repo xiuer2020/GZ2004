@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box2{
+				width:200px;
+				height:200px;
+				background:green;
+			}
+		</style>
+	</head>
+	<body bgColor="#ccc">
+		<div id="box" style="width:300px;height:300px;background-color:red;"></div>
+		<div id="box2"></div>
+		
+		<script src="getStyle.js"></script>
+		<script>
+			var box = document.getElementById('box');
+			
+			// 查看所有的css样式  
+			
+			
+			
+			
+			
+			// css中若有'-',js操作时需要去除'-',变成驼峰命名法
+			
+			// margin-left   marginLeft     border-radius   borderRadius  font-size   fontSize
+			
+			
+			
+			var box2 = document.getElementById('box2');
+			// js不能直接获取内嵌式或者外部引入的css的样式
+			
+			
+			box2.style.background = 'orange';
+			
+			
+			// 通过封装的getStyle方法,获取对象指定的属性的值
+			var res = getStyle(box2,'height')
+			
+		</script>
+	</body>
+</html>

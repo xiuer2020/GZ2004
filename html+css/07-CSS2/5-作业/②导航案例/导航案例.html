@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      list-style: none;
+    }
+    .banner {
+      width: 760px;
+      height: 150px;
+      background: url("images/banner_bg.jpg") repeat-x;
+      margin: 0 auto;
+    }
+    .nav {
+      width: 760px;
+      height: 32px;
+      background: url("images/button1_bg.jpg") repeat-x;
+      margin: 0 auto;
+    }
+    .nav li a {
+      text-decoration: none;
+      color:#000;
+      font-size: 12px;
+    }
+    .nav ul li {
+      float: left;
+      width: 80px;
+      text-align: center;
+      line-height: 32px;
+      background: url("images/button1.jpg") no-repeat;
+      /*position: relative;*/
+    }
+    .nav li:hover {
+      background: url("images/button2.jpg") no-repeat;
+    }
+    .nav li:hover a {
+      color: #fff;
+    }
+    .nav li img {
+      position: absolute;
+      right:5px;
+      top:-10px;
+    }
+    .nav li:nth-child(4) {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <img src="images/banner1.jpg" alt="">
+  </div>
+  <div class="nav">
+    <ul>
+		<li><a href="#">网站首页</a></li>
+		<li><a href="#">最新新闻</a></li>
+		<li><a href="#">联系我们</a></li>
+		<li>
+			<a href="#">关于我们</a>
+			<img src="images/hot.png">
+		</li>
+		<li><a href="#">案例展示</a></li>
+		<li><a href="#">产品中心</a></li>
+    </ul>
+  </div>
+</body>
+</html>

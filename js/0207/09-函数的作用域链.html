@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 全局变量和局部变量冲突时,优先使用局部变量
+			// 全局变量
+			var age = 20;
+			function demo(){
+				
+				
+				// 局部变量  var存在变量提升,但赋值并未提前
+				var age = 50;
+				// 局部变量重新赋值为30
+				age = 30
+				
+			}
+			
+			demo();
+			
+			
+			
+			
+			
+			var num2 = 30;
+			function fun1(){
+				var num1 = 20;
+				function fun2(){
+					function fun3(){
+						// 局部变量
+						var num1 = 10;
+						var num3 = 50;
+						
+						
+					}
+					
+					fun3()
+					
+					// 
+				}
+				
+				fun2()
+			}
+			
+			fun1()
+			
+			// 函数的作用域链
+		</script>
+	</body>
+</html>

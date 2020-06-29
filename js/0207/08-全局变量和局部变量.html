@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 全局变量
+			var name = '张三';
+			
+			
+			
+			function fun(){
+				// 全局变量可以在函数体内部被读取和修改
+				name = '李四';
+				
+				
+				// 局部变量
+				var age = 20;
+				
+				
+				// 在函数体内部不采用var定义的变量(不推荐此写法),此时变量为全局变量
+				sex = '男';
+				
+			}
+			fun()
+			
+			// 局部变量只能在函数体内部被访问和修改
+			// 
+			
+			
+			
+			function demo(){
+				var age = 50;
+				
+				
+				// 局部变量在声明时,声明会提前到整个函数开始的地方
+				
+				var num = 100;
+			}
+			
+			demo();
+
+		</script>
+	</body>
+</html>

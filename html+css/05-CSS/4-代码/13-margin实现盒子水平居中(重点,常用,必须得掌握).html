@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			width: 500px;
+			height: 100px;
+			background: red;
+			text-align:center;
+			/*
+				想让一个盒子居中,有3个条件
+				第一:需要是一个块级元素
+				第二:需要给这个块级元素设置宽度,并且宽度要小于100%
+				第三:再设置margin-left:auto;以及margin-right:auto;
+
+				auto自动的意思,只对左外边距以及右外边距有效
+			*/
+			/*margin-left: auto;*/
+			/*margin-right: auto;*/
+			
+			/*推荐使用这种*/
+			margin:0 auto;
+
+			/*margin:auto;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div的内容</div>
+</body>
+</html>

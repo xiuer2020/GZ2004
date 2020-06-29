@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件冒泡</title>
+		<style>
+			div.one{width:500px;height:400px;background:#ccc;}
+			div.two{width:200px;height:200px;background:orange;margin:0 auto;}
+		</style>
+	</head>
+	<body>
+		<div class="one" onclick="fun1()">
+			<div class="two" onclick="fun2()"></div>
+		</div>
+		
+		<script>
+			function fun1(){
+				
+			}
+			
+			function fun2(e){
+				// alert(window.event)
+				// IE低版本不支持e  只支持window.event
+				var ev = e || window.event;
+				
+				// 解决事件冒泡  标准写法
+				// ev.stopPropagation()
+				
+				// IE解决事件冒泡
+				// ev.cancelBubble = true;
+				
+				// 解决事件冒泡的兼容性写法
+				ev.stopPropagation ? ev.stopPropagation() : ev.cancelBubble = true;
+				
+				
+			}
+		</script>
+	</body>
+</html>

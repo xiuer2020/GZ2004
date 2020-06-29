@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*注意:如果两个div需要排成一行,那么这两个div都需要浮动*/
+		.one{
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*左浮动*/
+			float: left;		
+		}
+		.two{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			/*左浮动*/
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<!-- 浮动特点2:如果浮动的元素前面是标准流的元素,那么这个浮动的元素跟在标准流的下面,而不会跑到标准流元素的上面,压住标准流 -->
+	<div class="one">one</div>
+	<div class="two">two</div>
+</body>
+</html>

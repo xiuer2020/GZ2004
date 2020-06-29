@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="" id="province">
+			<option value="" disabled selected>--请选择--</option>
+			<option value="0">广东省</option>
+			<option value="1">重庆市</option>
+			<option value="2">四川省</option>
+		</select>
+		<select name="" id="city">
+			<option value="" disabled selected>--请选择--</option>
+		</select>
+		<script>
+			var address = [
+				['广州','深圳','惠州','清远','肇庆','佛山'],
+				['渝中区','南岸区','江北区','巴南区','涪陵区'],
+				['成都','绵阳','雅安','广元','广安']
+			]
+			
+			var province = document.getElementById('province');
+			var city = document.getElementById('city');
+			
+			province.onchange = function(){
+				// 
+				// 
+				// 
+				// 清空city内的option
+				city.length = 1;
+				for(var i=0;i<address[this.value].length;i++){
+					// 
+					
+					// 创建option标签
+					// var option = document.createElement('option')
+					// option.innerHTML = address[this.value][i];
+					// option.value = i;	
+					
+					// Option(设置标签内容,value的值)
+					var option = new Option(address[this.value][i],i);
+					
+					// 
+					city.appendChild(option)
+				}
+			}
+		</script>
+	</body>
+</html>

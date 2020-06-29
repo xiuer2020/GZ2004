@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 数字-9到9
+			var pattern = /^-{0,1}[0-9]$/;
+			var pattern = /^-?\d$/;
+			
+			// 用户名不能为空
+			var pattern = /^[0-9A-Za-z_]{1,}$/;			
+			var pattern = /^\w+$/;
+			
+			// 贪婪模式  .*      
+			// 转义字符  \     ()在正则中仍然适用
+			var pattern = /<li>.*<\/li>/;
+			var str = '<li>百事可乐</li><li>珍珠奶茶</li>';
+			
+			var res = pattern.exec(str);
+			
+			
+			// 取消贪婪模式   .*?
+			var pattern = /<li>.*?<\/li>/;
+			var str = '<li>百事可乐</li><li>珍珠奶茶</li>';
+			var res = pattern.exec(str);
+			
+			
+			// 匹配百度的网址  遇到特殊含义的字符需要转义
+			// var pattern = /^http:\/\/www\.baidu\.com$|^https:\/\/www\.baidu\.com$/;
+			var pattern = /^(http|https|ftp):\/\/www\.baidu\.com$/;
+			var str = 'https://www.baidu.com';
+			var res = pattern.exec(str);
+			
+		</script>
+	</body>
+</html>

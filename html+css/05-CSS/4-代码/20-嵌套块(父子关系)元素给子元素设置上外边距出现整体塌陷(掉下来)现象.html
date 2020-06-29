@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*嵌套块(父子关系)元素给子元素设置上外边距出现整体塌陷(掉下来)现象*/
+		.father{
+			width: 500px;
+			height: 500px;
+			background: red;
+			/*
+			解决方法:
+				1. 可以为父元素定义1像素的上边框或上内边距
+				2. 可以为父元素添加overflow:hidden  推荐使用
+				3. 也可以给父元素设置等价的padding-top,记得减去对应的高度,也可以解决
+			*/
+			/*border-top:1px solid orange;*/
+			/*padding-top:1px;*/
+
+			overflow: hidden;
+
+			/*padding-top: 100px;*/
+			/*height: 400px;*/
+		}
+		.father .son{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*先大后小(先整体后细节)*/
+		body{
+			background:#808080;
+		}
+		/*大盒子如果有子元素内容的话,一般我们不设置高度,让高度由子元素撑开*/
+		.box{
+			width: 115px;
+		}
+		.box .title{
+			/*div默认宽度父元素100%*/
+			background: url(images/online.png);
+			height: 37px;
+			line-height:37px;
+			text-indent: 1em;
+			font-size:14px;
+		}
+
+		.box:hover .title{
+			background: url(images/online.png) right top;
+		}
+
+		.box .content{
+			background: #ffffff;
+			/*隐藏元素*/
+			display: none;
+		}
+
+		/*设置鼠标移上.box以后,.content使用的样式*/
+		.box:hover .content{
+			/*显示元素*/
+			display: block;
+		}
+
+		.box .content a{
+			width: 24px;
+			height: 24px;
+			/*看元素的位置   技巧:设置元素的背景颜色;设置边框*/
+			display: inline-block;
+			background:url(images/online.png);
+		}
+		.box .content a:nth-child(1){
+			background-position: left bottom;
+		}
+		.box .content a:nth-child(2){
+			/*background-position:多种取值方式可以混合使用*/
+			background-position: -51px bottom;
+		}
+		.box .content a:nth-child(3){
+			/*background-position:多种取值方式可以混合使用*/
+			background-position: -101px bottom;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<!-- 步骤:先写HTML结构(需要观察效果图) -->
+	<div class="box">
+		<!-- 上部分 -->
+		<div class="title">在线游戏</div>
+		
+		<!-- 下部分 -->
+		<div class="content">
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+		</div>
+	</div>
+</body>
+</html>

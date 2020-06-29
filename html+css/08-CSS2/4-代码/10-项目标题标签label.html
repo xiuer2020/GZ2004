@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	 <!-- 作用  用于绑定一个表单控件, 当点击label标签的时候, 被绑定的表单控件就会获得输入焦点。 -->
+	<form action="index.php" method="get">
+		<!-- 如何绑定元素呢？ -->
+		<h2>第一种用法:使用label标签包裹要设置的内容和表单元素 用的多</h2>
+		<p>
+			<label>用户名:<input type="text"/></label>
+		</p>
+
+		<h2>第二种用法:使用label中的for属性  for="id名" 表单元素需要设置一个id属性</h2>
+		<p>
+			<label for="myPass">密码:</label>
+			<input type="password" id="myPass"/>
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			background: skyblue;
+			height: 50px;
+		}
+		.banner{
+			background: green;
+			height: 100px;
+		}
+		.nav{
+			background: orange;
+			height: 100px;
+		}
+		.main{
+			background: pink;
+			height: 300px;
+		}
+		.footer{
+			background: gray;
+			height: 100px;	
+		}
+		/*版心布局:宽度超过页面的一半,然后显示在页面的中心位置*/
+		/*如何实现:通常会定义一个版心类,给这个版心类设置一个固定宽度以及左右外边距为auto*/
+		/*版心类一般就只设置一个宽度以及左右外边距为auto样式,其他样式别放在版心类里面*/
+		.w{
+			width: 1000px;
+			margin:0 auto;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<!-- 通栏布局:宽度占据整个页面 -->
+		<!-- 通栏布局,把版心类设置指定层里面 -->
+		<div class="w">头部</div>
+	</div>
+
+	<!-- 多类名选择器 同一个标签上可以具有多个类名,类名之间使用空格隔开-->
+	<div class="banner w">轮播层</div>
+	<div class="nav w">导航层</div>
+	<div class="main w">主要内容层</div>
+	
+	<div class="footer">
+		<div class="w">底部</div>
+	</div>
+</body>
+</html>

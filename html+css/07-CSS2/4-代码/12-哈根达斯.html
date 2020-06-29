@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 310px;
+			height: 190px;
+			border:1px solid #cccccc;
+			padding:10px;
+			margin:50px auto;
+			position:relative;
+		}
+		/*子绝父相*/
+		.box img:nth-child(2){
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box img:nth-child(3){
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		.box img:nth-child(4){
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/adv.jpg"/>	
+		<img src="images/top_tu.gif"/>	
+		<img src="images/bl.gif"/>	
+		<img src="images/br.gif"/>	
+	</div>
+</body>
+</html>
