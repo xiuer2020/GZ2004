@@ -1,0 +1,159 @@
+.play-view {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 100;
+
+  .play-logo {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    width: 92px;
+    height: 17px;
+  }
+
+  .music-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .music-player {
+    position: relative;
+
+    .record-wrapper {
+      position: relative;
+      margin: 0 auto;
+      width: 342px;
+      height: 342px;
+
+      &:before {
+        content: ' ';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../common/icon/disc-plus.png");
+        background-size: contain;
+      }
+    }
+
+    .music-record {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      animation: circling 20s linear infinite;
+
+      .music-record-img {
+        position: absolute;
+        top: 65px;
+        left: 65px;
+        width: 212px;
+        height: 212px;
+        border-radius: 50%;
+      }
+
+      &:after {
+        content: ' ';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("../../common/icon/disc_light-plus.png");
+        background-size: contain;
+      }
+    }
+
+    .play-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      display: block;
+      width: 65px;
+      height: 65px;
+      background-image: url("../../common/icon/play_btn.png");
+      background-size: cover;
+    }
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      width: 96px;
+      height: 137px;
+      background-image: url("../../common/icon/needle.png");
+      background-size: contain;
+    }
+  }
+
+  .music-name {
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.1;
+    text-align: center;
+    color: #fefefe;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    .music-artists {
+      font-size: 16px;
+      color: hsla(0, 0%, 100%, .6);;
+    }
+  }
+
+  .lyric-wrapper {
+    margin-top: 14px;
+    padding: 0 35px;
+    text-align: center;
+    height: 56px;
+    overflow: hidden;
+
+    .lrc-item {
+      padding-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+      color: hsla(0, 0%, 100%, .6);
+
+      &.active {
+        color: #fff;
+      }
+    }
+  }
+
+  .bg-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: gray;
+    background-position: 50%;
+    background-size: auto 100%;
+    transform-origin: center top;
+    transform: scale(1.5);
+    filter: blur(10px);
+    z-index: -1;
+  }
+}
+
+@keyframes circling {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+
+}
