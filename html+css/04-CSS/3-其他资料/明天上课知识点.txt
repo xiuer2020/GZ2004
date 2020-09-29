@@ -1,4 +1,0 @@
-盒子模型
-	border
-	padding
-	margin
