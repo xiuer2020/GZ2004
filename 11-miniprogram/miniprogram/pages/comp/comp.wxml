@@ -1,9 +1,0 @@
-<!--pages/comp/comp.wxml-->
-<text>pages/comp/comp.wxml</text>
-
-<test parentToChildMsg="【父传子】">solt内容</test>
-<test>插槽内容</test>
-
-<test prop-a="{{dataFieldA}}" prop-b="{{dataFieldB}}" bind:customEvent="onCustomEvent"></test>
-
-<helloworld></helloworld>

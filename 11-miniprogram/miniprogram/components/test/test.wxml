@@ -1,9 +1,0 @@
-<!--components/test/test.wxml-->
-<view>components/test/test.wxml</view>
-<view class="wrapper">
-<!-- ~父级页面样式 ^父级组件样式 -->
-<!-- 子传父 自定义事件  触发用triggerEvent() vue使用$emit() -->
-  <view class="~red-text" bindtap="onTap">这里是组件的内部节点{{parentToChildMsg}}</view>
-  <slot></slot>
-  <view vx:if="propA">{{propA}}</view>
-</view>

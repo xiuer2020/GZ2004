@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "test": "../../components/test/test",
-    "helloworld": "../../components/helloworld/helloworld"
-
-  }
-}
