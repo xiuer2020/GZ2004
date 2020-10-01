@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+        <style>
+            body {
+                margin: 0;
+            }
+            .bigbox {
+                width: 200px;
+                height: 50px;
+                background: lightblue;
+                margin: 100px;
+                position: relative;
+                overflow: scroll;
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background: red;
+                /* position: absolute;
+                top: 10px;
+                left: 10px; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bigbox">
+            <div class="box">box</div>
+        </div>
+        <script>
+            // 相对于整个文档的偏移
+            // $(selector).offset()
+            // 设置偏移坐标：
+
+            // $(selector).offset({top:value,left:value})
+            // 使用函数设置偏移坐标：
+
+            // $(selector).offset(function(index,currentoffset))
+            
+            // $(".box").offset({top:100, left:100})
+
+            // 基于最近定位父元素的偏移量
+            
+            // 返回最近定位的父级元素
+            
+
+            
+            // $(document).scrollTop()
+
+            $(document).scroll(function() {
+                // 读取滚动
+                
+            });
+            // 设置滚动
+            $(document).scrollTop(100);
+        </script>
+
+        <p>段落</p>
+
+        <script>
+            $("p").click(function() {
+                
+            });
+            $("p")
+                .clone(true)
+                .appendTo(".bigbox");
+
+            // wrap wrapAll wrapInner
+
+        </script>
+    </body>
+</html>

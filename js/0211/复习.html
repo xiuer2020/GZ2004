@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<!-- 
+		匿名函数:没有名字的函数
+			(function(){
+				
+			})();
+		
+		回调函数:实参对应传给形参的是一个已定义好的函数
+			function fun(a,b){
+				
+			}
+			function demo(){
+				
+			}
+			fun(1,demo)//注意不要加引号和小括号   只传函数名
+			
+			forEach(function(){})
+			
+		闭包函数：内部函数在其作用域之外被访问，则形成内部函数的闭包
+		写法一：
+		function outside(){
+			var num = 100;
+			var inside = function(){
+				//内部函数需要使用外部函数的变量
+				
+				num++;
+			}
+			
+			return inside;
+		}
+		
+		var res = outside()
+		inside()
+		
+		//方法二
+		function outside(){
+			function inside(){
+				
+			}
+			
+			return inside;
+		}
+		
+		
+		//方式三
+		function outside(){
+			return (function(){
+				
+			})
+		}
+		闭包函数
+			优点：可以在其作用域之外被访问
+			
+			缺点：闭包函数若使用了全局变量，则该变量不会被内存释放，会一直存在于内存中
+			
+			解决方案：当函数调用完之后，将该变量清空
+			
+		递归函数：自己调用自己
+		
+		注意：递归的阶乘
+		function fun(num){
+			
+			if(num>0){
+				fun(num-1) //fun(0)
+			}
+			
+		}
+		
+		fun(1)//1 0  0  1
+		
+		
+		对象
+		var obj = new Object()
+		
+		通过实例化对象查看对象原型
+		obj.__proto__
+		
+		通过原生方法查看对象原型
+		Object.prototype
+		
+		在对象原型下添加方法
+		Object.prototype.方法名 = function(){
+			
+		}
+		
+		
+		注意：在对象原型下添加的方法，只要是通过Object实例化出来的对象，均可以使用
+		
+		数组：
+			定义：一段有序数据的集合，多个元素之间采用逗号连接
+			
+			数组的定义方式
+			方式一：
+			var arr = new Array();//创建一个空数组
+			var arr = new Array(3);//一个数字作为参数，则代表创建指定长度的数组
+			var arr = new Array(1,2,3)//创建一个数组，参数为数组的值
+			
+			
+			方式二：
+			var arr = [];
+			var arr = [1,2,3,4,5]
+			
+			js中的数组，下标为数字。默认从0开始递增
+			length为数组的长度
+			
+			数组的下标+1=数组的长度
+			
+			获取指定下标的值
+			arr[下标]
+			
+			添加或者修改指定下标的值
+			arr[下标] = 值
+			
+				注意：若该下标已存在，则为修改数组；若不存在则为添加指定下标
+				
+			删除指定下标的值
+			delete(arr[下标])
+			
+			手册中的索引值，就是指的下标
+			
+			数组的遍历（迭代）
+				显示迭代
+				隐式迭代
+				
+			for(var i=0;i<arr.length;i++){
+				
+			}
+			
+			
+			arr.forEach(function(val,key,ownObj){
+				val:代表数组的值
+				key:代表数值的索引值（下标）
+				ownObj:当前遍历的数组
+			})
+	 -->
+	</body>
+</html>

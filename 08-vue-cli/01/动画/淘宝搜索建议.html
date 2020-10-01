@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <keyword-input @translate-keyword="translatekeyword($event)"></keyword-input>
+            <suggest-list :suggests='suggests'></suggest-list>
+        </div>
+
+        <script>
+            Vue.component("keyword-input", {
+                data: function () {
+                    return {
+                        keyword: "",
+                    };
+                },
+                template: `
+                <input type="text" v-model="keyword">
+                `,
+                watch: {
+                    keyword: function (newValue) {
+                        // 
+                        this.$emit("translate-keyword", newValue);
+                    },
+                },
+            });
+
+
+            Vue.component('suggest-list', {
+                props: ['suggests'],
+                template: `
+                <ul>
+                    <li v-for="(item,index) in suggests" :key='index'>{{item[0]}}</li>
+                </ul>
+                `
+            })
+
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    translatedKeyword: "",
+                    suggests: [],
+                },
+                methods: {
+                    translatekeyword: function (keyword) {
+                        // 
+                        this.translatedKeyword = keyword;
+
+                        // 根据关键词拿数据
+                        axios
+                            .get("http://api.kele8.cn/agent/https://suggest.taobao.com/sug", {
+                                params: {
+                                    code: "utf-8",
+                                    q: keyword,
+                                },
+                            })
+                            .then((response) => {
+                                
+                                this.suggests = response.data.result;
+                            })
+                            .catch((error) => {
+                                
+                            });
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

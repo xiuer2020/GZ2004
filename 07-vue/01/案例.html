@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <button v-on:click="toggleBoxShow('我是参数')">切换显隐</button>
+            <div class="box" v-if="boxShow"></div>
+        </div>
+        <script>
+            let app = new Vue({
+                el: "#app",
+                data: {
+                    boxShow: false,
+                },
+                methods: {
+                    toggleBoxShow: function (v) {
+                        
+                        this.boxShow = !this.boxShow;
+                    },
+                },
+            });
+        </script>
+
+        <!-- 作业 选项卡 -->
+        <!-- 拓展 轮播图 -->
+    </body>
+</html>

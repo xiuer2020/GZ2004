@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		.one{
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index:1;
+		}
+		.two{
+			background: blue;
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			z-index:-1;
+		}
+		.three{
+			background: green;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+		}
+
+		/*z-index的特性如下:*/
+		
+		/* 1. 属性取值:正整数、负整数或 0，默认值是 0，数值越大，盒子越靠上 */
+		/* 2. 如果属性值相同，则按照书写顺序，HTML结构写在后面的会覆盖写在前面的 */
+		/* 3. 数字后面不能加单位,直接写数值 */
+
+		/*特别注意:z-index 只能应用于相对定位、绝对定位和固定定位的元素，其他标准流、浮动和静态定位无效。*/
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+</body>
+</html>

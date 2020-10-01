@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 栈:存储的是具体的值
+			var num1 = 10;
+			var num2 = num1;
+			
+			
+			num1 = 20;
+			
+			
+			// 对象的存储  堆
+			var a = {name:'zhangsan',age:18};		
+			// 将b的指针指向a
+			var b = a;
+			
+			
+			a.name = 'lisi'
+			
+			
+			b.age = 88;
+			
+			
+			
+		// 拓展对象的创建
+		Object.beget = function(obj){
+			// 每个原生方法内都有一个构造函数
+			function F(){
+				
+			}
+			// 构造函数继承
+			
+			//Teacher.prototype = new Person('静静姐') 
+			F.prototype = obj;
+			
+			
+			
+			return new F();
+		}
+		var Person = {
+			name:'翠花',
+			say:'hello world'
+		}
+		
+		// myPerson则继承了Person的所有属性和方法
+		var myPerson = Object.beget(Person)
+		
+		
+		
+		
+		// 非构造函数的继承
+		var Chinese = {
+			nation:'中国人',
+			age:120
+		}
+		
+		// var student = {
+		// 	name:'学生'
+		// }
+		
+		// 学生如何继承'中国人'
+		
+		//方法一:Object方法
+		function object(obj){
+			function F(){
+				
+			}
+			F.prototype = obj;
+			
+			return new F();
+		}
+		
+		
+		// 第一步:先在父对象基础上,生成子对象
+		var Student = object(Chinese);
+		
+		
+		// 第二步:添加子对象本身的属性
+		Student.name = '学生';
+		
+		
+		
+		
+		
+		// 方法二:浅拷贝  把父对象内的属性和方法都拷贝到子对象中
+		function extendCopy(obj){
+			
+			// 新建一个空对象,接收所有copy的内容
+			var newObj = {};
+			
+			// for...in遍历
+			for(var i in obj){
+				
+				newObj[i] = obj[i];
+			}
+			// 将复制后的内容返回
+			return newObj;
+		}
+		
+		// 调用extendCopy方法  将Chinese对象当作实参传入
+		var Doctor = extendCopy(Chinese);
+		
+		
+		
+		// 注意:浅拷贝这种拷贝存在问题.如果父对象的某个属性是数组或者一个对象呢.实际上子对象获取到的仅仅只是一个内存地址,而不是真正的拷贝.因此父对象如进行修改,则子对象会被修改
+		
+		// 比如:
+		Chinese.city = ['广州','重庆','成都'];
+		
+		
+		// Doctor去继承Chinese对象
+		var Student = extendCopy(Chinese);
+		
+		
+		
+		// 修改父对象的city
+		Chinese.city.push('武汉');
+		
+		
+		
+		// 深拷贝  将内容全部拷贝  (而不是仅仅拷贝一个地址)
+		function deepCopy(obj,newObj){
+			var newObj = newObj || {};
+			
+			for(var i in obj){
+				// 判断拷贝的是否为对象
+				if(typeof obj[i] === 'object'){
+					
+					// 
+					/* 
+						var arr = new Array()
+						var obj = new Object()
+					 */
+					// 判断是否为数组
+					// 
+					newObj[i] = (obj[i].constructor === Array) ? [] : {};
+					
+					// 递归调用deepCopy
+					deepCopy(obj[i],newObj[i])
+					
+				}else{
+					newObj[i] = obj[i];
+				}
+			}
+			
+			// 将copy之后的数据返回
+			return newObj;
+			
+		}
+		
+		var Teacher = deepCopy(Chinese);
+		
+		
+		// 父对象改变则不会影响子对象
+		Chinese.city.push('北京')
+		
+		</script>
+	</body>
+</html>

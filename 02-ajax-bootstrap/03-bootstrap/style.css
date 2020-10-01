@@ -1,0 +1,25 @@
+body {
+  background: red;
+}
+body p {
+  color: blue;
+}
+body p a {
+  text-decoration: none;
+}
+body p a.title {
+  font-weight: bold;
+}
+body p a.title:hover {
+  color: blue;
+}
+body p img {
+  width: 25%;
+}
+body p .header {
+  background: lightblue;
+}
+body > .test,
+body .testA {
+  background: rebeccapurple;
+}

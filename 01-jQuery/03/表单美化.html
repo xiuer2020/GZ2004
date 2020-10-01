@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+        <style>
+            input[type="radio"] {
+                display: none;
+            }
+            label div {
+                width: 23px;
+                height: 23px;
+                display: inline-block;
+                background: url("./icr-green-skin.png");
+            }
+            .gender label div {
+                background-position-y: -50px;
+            }
+            .fav label div {
+                background-position-y: 0;
+            }
+            /* .gender label:hover div {
+                background-position-x: -50px;
+            } */
+        </style>
+    </head>
+    <body>
+        <form action="#" method="GET">
+            <div class="gender">
+                <label>
+                    <div></div>
+                    <input type="radio" name="gender" value="nan" />
+                    <span>男</span>
+                </label>
+                <label>
+                    <div></div>
+                    <input type="radio" name="gender" value="nv" />
+                    <span>女</span>
+                </label>
+                <label>
+                    <div></div>
+                    <input type="radio" name="gender" value="screct" />
+                    <span>保密</span>
+                </label>
+            </div>
+            <br />
+            <div class="fav">
+                <label>
+                    <div></div>
+                    <input type="checkbox" name="fav" value="pingguo" />
+                    <span>苹果</span>
+                </label>
+                <label>
+                    <div></div>
+                    <input type="checkbox" name="fav" value="putao" />
+                    <span>葡萄</span>
+                </label>
+                <label>
+                    <div></div>
+                    <input type="checkbox" name="fav" value="nan" juzi />
+                    <span>橘子</span>
+                </label>
+            </div>
+
+            <input type="submit" value="" />
+        </form>
+
+        <script>
+            // $(".gender label").click(function(e) {
+            //     // e.preventDefault();
+            //     // 
+
+            //     // 
+            //     // if ($(this).find("input").prop("checked")) {
+            //     //     $(this).find("div").css('background-position-x', '-100px')
+            //     // }
+            //     $(".gender label").each(function(index, element) {
+            //         if (
+            //             $(element)
+            //                 .find("input")
+            //                 .prop("checked")
+            //         ) {
+            //             $(element)
+            //                 .find("div")
+            //                 .css("background-position-x", "-100px");
+            //         } else {
+            //             $(element)
+            //                 .find("div")
+            //                 .css("background-position-x", "0");
+            //         }
+            //     });
+            // });
+
+            $("label").click(function() {
+                $("label").each(function(index, element) {
+                    if (
+                        $(element)
+                            .find("input")
+                            .prop("checked")
+                    ) {
+                        $(element)
+                            .find("div")
+                            .css("background-position-x", "-100px");
+                    } else {
+                        $(element)
+                            .find("div")
+                            .css("background-position-x", "0");
+                    }
+                });
+            });
+
+            $("label").hover(
+                function() {
+                    // $(this).find('div').animate({'background-position-x': '-=50px'},0)
+                    if (
+                        $(this)
+                            .find("input")
+                            .prop("checked")
+                    ) {
+                        $(this)
+                            .find("div")
+                            .css("background-position-x", "-150px");
+                    } else {
+                        $(this)
+                            .find("div")
+                            .css("background-position-x", "-50px");
+                    }
+                },
+                function() {
+                    if (
+                        $(this)
+                            .find("input")
+                            .prop("checked")
+                    ) {
+                        $(this)
+                            .find("div")
+                            .css("background-position-x", "-100px");
+                    } else {
+                        $(this)
+                            .find("div")
+                            .css("background-position-x", "0px");
+                    }
+                }
+            );
+        </script>
+    </body>
+</html>

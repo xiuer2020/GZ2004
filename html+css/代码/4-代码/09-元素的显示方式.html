@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+		}
+		.div2{
+			background: pink;
+		}
+		ul{
+			width: 100px;
+			height: 200px;
+			background: orange;
+		}
+		ul li{
+			width: 50px;
+			height: 50px;
+			background: green;
+		}
+
+		span{
+			width: 1000px;
+			height: 1000px;
+		}
+		a{
+			background: yellow;
+			width: 200px;
+			height: 200px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<!-- 在HTML标签中,我们会发现有的标签是从上到下排列,有的标签从左到右排列 -->
+	<!-- 那么我们会根据标签排列顺序的不同,把标签分为三种显示方式 -->
+	<!-- 块级元素,行内元素,行内块元素 -->
+
+	<!-- 块级元素特点:指的是独占一行,并且可以使用CSS设置宽度高度,默认宽度是父元素100% -->
+	<!-- 常见块级元素有div p h1~h6 ul li... -->
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<ul>
+		<li>张三</li>
+		<li>李四</li>
+		<li>王五</li>
+	</ul>
+	<ul>
+		<li>苹果</li>
+		<li>西瓜</li>
+		<li>冬瓜</li>
+	</ul>
+
+	<!-- 行内元素特点:不独占一行,一行可以存放多个,直到放不下才会换行显示,CSS设置宽度高度无效 默认宽度由内容决定 -->
+	<!-- 常见行内元素 span a i em b strong u ins del s -->
+	<span style="background:red">span1span1span1span1</span>
+	<span style="background:blue">span2</span>
+	<a href="#">百度</a>
+	<a href="#">京东</a>
+	
+	<!-- 行内块元素,同时具有行内元素的部分特点,又具有块元素的部分特点  一行可以显示多个 CSS可以设置宽度高度 默认宽度还是由内容决定 -->
+	<!-- 常见行内块元素 img input -->
+	<img src="images/1.jpg"/>
+	<img src="images/1.jpg"/>
+</body>
+</html>

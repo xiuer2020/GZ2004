@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .row {
+                display: flex;
+            }
+            [class^="col"] {
+                flex: 1;
+            }
+
+            .col-xs-1 {
+                flex: 1;
+            }
+            .col-xs-2 {
+                flex: 2;
+            }
+            .col-xs-3 {
+                flex: 3;
+            }
+            .col-xs-4 {
+                flex: 4;
+            }
+            .col-xs-5 {
+                flex: 5;
+            }
+            .col-xs-6 {
+                flex: 6;
+            }
+
+            .col-xs-7 {
+                flex: 7;
+            }
+            .col-xs-8 {
+                flex: 8;
+            }
+            .container {
+                width: 100%;
+            }
+
+            @media (min-width: 768px) {
+                .col-sm-1 {
+                    flex: 1;
+                }
+                .col-sm-2 {
+                    flex: 2;
+                }
+                .col-sm-3 {
+                    flex: 3;
+                }
+                .col-sm-4 {
+                    flex: 4;
+                }
+                .col-sm-5 {
+                    flex: 5;
+                }
+                .col-sm-6 {
+                    flex: 6;
+                }
+
+                .col-sm-7 {
+                    flex: 7;
+                }
+                .col-sm-8 {
+                    flex: 8;
+                }
+
+                .container {
+                    width: 750px;
+                    margin: 0 auto;
+                }
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-xs">col-xs</div>
+            <div class="col-xs">col-xs</div>
+            <div class="col-xs">col-xs</div>
+            <div class="col-xs">col-xs</div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-xs-4 col-sm-8">col-xs-4 col-sm-8</div>
+            <div class="col-xs-8 col-sm-4">col-xs-8 col-sm-4</div>
+            <hr />
+            <!-- <div class="col-xs-3">col-xs-3</div>
+            <div class="col-xs-3">col-xs-3</div>
+            <div class="col-xs-6">col-xs-6</div> -->
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col9">col9</div>
+                <div class="col2">col2</div>
+                <div class="col13">col13</div>
+            </div>
+        </div>
+
+        <style>
+            .row {
+                background: lightcyan;
+            }
+            div[class^="col"] {
+                border: 1px solid red;
+                box-sizing: border-box;
+            }
+            .col9 {
+                flex: 9;
+            }
+            .col2 {
+                flex: 4;
+            }
+            .col13 {
+                flex: 11;
+            }
+        </style>
+    </body>
+</html>
+
+
+<!-- Bootstrap3	Bootstrap4
+Less	Sass语言编写
+4种栅格类	5种栅格类
+使用px为单位	使用rem和em为单位（除部分margin和padding使用px）
+使用push和pull向左右移动	偏移列通过offset-类设置
+使用float的布局方式	选择弹性盒模型（flexbox） -->
+
+<!-- ui框架 -->
+<!-- Foundation Semantic UI 960grid pintuer ... -->
+
+
+
+<!-- https://www.17sucai.com/pins/demo-show?id=36009 -->
+<!-- https://www.17sucai.com/pins/demo-show?id=35851 -->
+<!-- https://www.17sucai.com/pins/demo-show?id=35741 -->

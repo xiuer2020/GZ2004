@@ -1,0 +1,5 @@
+<!--pages/me/me.wxml-->
+me
+
+<navigator url="/pages/find/find" open-type="switchTab">find</navigator>
+<navigator class="active" url="/pages/me/me" open-type="switchTab">me</navigator>

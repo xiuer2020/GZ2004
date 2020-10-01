@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // es6.ruanyifeng.com
+            // var a = 1
+            // let a = 1;
+            // let b = 2;
+            // let c = 3;
+
+            // let a = 1,
+            //     b = 2,
+            //     c = 3;
+
+            /* 数组解构 */
+            // let [a, b, c] = [1, 2, 3];
+            // 解构赋值 可以从数组中提取值，按照对应位置，对变量赋值。
+
+            // let [a, [b], c] = [1, [2], 3];
+            // 属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值
+
+            // let [, , c] = [1, 2, 3];
+            // let [head, ...tail] = [1, 2, 3, 4];
+            // var head = [1, 2, 3, 4][0];
+            // var tail = [1, 2, 3, 4].slice(1);
+
+            // let [x, y, ...z] = ["a"];
+            // ...剩余部分
+
+            // let [a, [b], c] = [1, [2, 3], 4];
+            // 属于不完全解构，但是可以成功。
+
+            /* 解构默认值 */
+            // let [a = 1, b] = [];
+            // 如果解构出来的值 是 undefined 取默认值
+
+            // let [x = 1, y] = [undefined];
+            // let [x = 1, y = 2] = [null];
+            // null 明确表示空对象 是一个确切的值
+
+            /* 对象解构 */
+            // let { baz, foo, bar } = { foo: "aaa", bar: "bbb" };
+            // 对象的解构与数组有一个重要的不同。
+            // 数组的元素是按次序排列的，变量的取值由它的位置决定；
+            // 而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+
+            // Math.random()
+            // let r = Math.random
+            // let { random, sqrt, floor } = Math;
+            // 提取某个对象里面的某些方法和属性
+
+            // 
+            // console.table([1, 2, 3]);
+            // console.table({ name: "nick", age: 17 });
+            // var log = 
+
+            // let { log, table } = console;
+
+            /* 对象解构重命名 */
+            // let { foo } = { foo: "aaa", bar: "bbb" };
+            // let { foo: baz } = { foo: "aaa", bar: "bbb" };
+            // foo是匹配的模式，baz才是变量。真正被赋值的是变量baz，而不是模式foo
+
+            // let { log: l, table: t } = console;
+
+            /* 对象解构默认值 */
+            // let { x = 3 } = {};
+            // let {x, y = 5} = {x: 1};
+            // let {x: y = 3} = {};
+            let {x: y = 3} = {x: 5};
+
+
+            // 周末祖业
+            // gitpage完成 注册 设置
+            // 整理项目面试用 => 补充项目
+            // 作业拓展 => 复杂化一点 排版布局特效功能
+            // 前端 漂亮UI => 能力功能=>文化内涵代码逻辑
+
+            // 复习js 作用域 深浅拷贝 同步异步 面向对象
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <!-- input &&& textarea -->
+
+        <div id="app">
+            <!-- .lazy oninput==>onchange -->
+            <!-- number 把用户输入的 默认 字符串数字转为数字  -->
+            <!-- 如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符 -->
+            <input type="text" v-model.lazy.number.trim="message" value="测试默认值" />
+            <!-- value默认值 不会生效 -->
+            <br />
+            <textarea v-model="message"></textarea>
+            <p>{{message}}</p>
+            <br />
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    message: "hello vue",
+                    // 双向绑定之后 数据状态是 表单状态的唯一来源
+                },
+            });
+
+            // text 和 textarea 元素使用 value 属性和 input 事件；
+            // checkbox 和 radio 使用 checked 属性和 change 事件；
+            // select 字段将 value 作为 prop 并将 change 作为事件。
+        </script>
+
+        <hr />
+
+        <!-- 单个 复选框 布尔值 -->
+        <!-- <div id="app2">
+            <input type="checkbox" v-model="checked" />
+        </div>
+        <script>
+            var app2 = new Vue({
+                el: "#app2",
+                data: {
+                    checked: true,
+                },
+            });
+        </script> -->
+
+        <div id="app2">
+            <input type="checkbox" 
+            v-model="checked" 
+            true-value="yes" 
+            false-value="no" />
+        </div>
+        <script>
+            var app2 = new Vue({
+                el: "#app2",
+                data: {
+                    checked: 'yes',
+                },
+            });
+        </script>
+
+        <!-- 多个 复选框 布尔值 -->
+        <!-- <div id="app3">
+            <form action="" method="get">
+                <label>
+                    <span>葡萄</span>
+                    <input type="checkbox" name="fav" id="" value="葡萄" />
+                </label>
+                <label>
+                    <span>桔子</span>
+                    <input type="checkbox" name="fav" id="" value="桔子" />
+                </label>
+                <label>
+                    <span>西瓜</span>
+                    <input type="checkbox" name="fav" id="" value="西瓜" />
+                </label>
+                <input type="submit" value="提交" />
+            </form>
+        </div> -->
+
+        <div id="app3">
+            <form action="" method="get">
+                <label>
+                    <span>葡萄</span>
+                    <input type="checkbox" value="葡萄" v-model="checkedNames" checked />
+                </label>
+                <label>
+                    <span>桔子</span>
+                    <input type="checkbox" value="桔子" v-model="checkedNames" />
+                </label>
+                <label>
+                    <span>西瓜</span>
+                    <input type="checkbox" value="西瓜" v-model="checkedNames" />
+                </label>
+                <br />
+                <p>checkedNames: {{checkedNames}}</p>
+                <br />
+                <input type="submit" value="提交" />
+            </form>
+        </div>
+        <script>
+            var app3 = new Vue({
+                el: "#app3",
+                data: {
+                    checkedNames: ["桔子"],
+                    // 多个复选框 状态结果保存在 数组里 初始化使用空数组
+                },
+            });
+        </script>
+
+        <hr />
+        <!-- 单选框 性别   默认状态是个 字符串 value -->
+        <div id="app4">
+            <label>
+                <span>男</span>
+                <input type="radio"  v-model="picked" v-bind:value="a" />
+            </label>
+            <label>
+                <span>女</span>
+                <input type="radio" value="famale" v-model="picked" />
+            </label>
+            <label>
+                <span>保密</span>
+                <input type="radio" value="secret" v-model="picked" />
+            </label>
+        </div>
+        <script>
+            var app4 = new Vue({
+                el: "#app4",
+                data: {
+                    a: 'xxx',
+                    picked: "",
+                },
+            });
+        </script>
+
+        <hr />
+
+        <!-- 下拉选择  单选字符串   多选数组-->
+        <div id="app5">
+            <!-- <select name="" id=""  v-model="selected"> -->
+            <select name="" id="" multiple v-model="selected">
+                <option value="BMW">BMW</option>
+                <option value="Benz" selected>Benz</option>
+                <option value="auto">auto</option>
+            </select>
+        </div>
+        <script>
+            var app5 = new Vue({
+                el: "#app5",
+                data: {
+                    // selected: "auto",
+                    selected: [],
+                },
+            });
+        </script>
+    </body>
+</html>

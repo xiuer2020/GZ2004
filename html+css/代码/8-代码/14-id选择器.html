@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*id选择器名*/
+		/* #id属性值{
+		
+		} */
+		/*选择的是具有这个id属性值的一个标签,同一个id只能出现一次*/
+		/*如果想同时设置多个标签的样式,建议使用类选择器*/
+
+		#myDiv{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="myDiv">div的内容</div>
+	<div id="myDiv">div的内容</div>
+	<div id="myDiv">div的内容</div>
+</body>
+</html>
+<script type="text/javascript">
+	// js通过id属性值获取对象  如果有多个同名id,只能获取到第一个
+	var objDiv = document.getElementById('myDiv');
+	console.log(objDiv);
+</script>

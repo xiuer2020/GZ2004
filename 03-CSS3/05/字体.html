@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p>使用以前 CSS 的版本，网页设计师不得不使用用户计算机上已经安装的字体。</p>
+        <style>
+            @font-face {
+                font-family: "xxx";
+                src: url("./xjlFont.fon");
+            }
+            p {
+                /* font-family: '宋体'; */
+                /* font-family: '仿宋'; */
+                font-family: "xxx", "仿宋";
+                /* 显示的是客户端电脑已经安装的字体 win mac linux */
+                /* 校内网 人人网  qq校友*/
+                font-size: 36px;
+
+                text-shadow: 0px 0 3px red;
+                color: white;
+                /* x y 模糊 */
+            }
+        </style>
+
+        <div class="box">box</div>
+        <style>
+            .box {
+                width: 110px;
+                height: 100px;
+                background: lightblue;
+                /* border-radius: 50%;
+                box-shadow: 3px 3px 10px 0px rgba(68, 68, 68, 0.904) inset; */
+                /* box-shadow: 0px 0px 15px 0px rgba(255, 0, 0, 0.267), 3px 3px 10px 0px rgba(37, 17, 216, 0.753); */
+                /* x y 模糊 尺寸 */
+
+                /* border: 1px solid red; */
+                border: 30px solid red;
+
+                /* border-image:url('https://www.runoob.com/images/border.png') 30 30 round; */
+                border-image-source: url("./border.png");
+                border-image-slice: 30;
+                border-image-width: 1; 
+                /* border-image-repeat:repeat; */
+                border-image-repeat:round;
+
+            }
+            
+        </style>
+
+        <div class="test">test</div>
+        <style>
+            .test {
+                width: 500px;
+                height: 500px;
+                background: lightcoral;
+                margin: 100px;
+
+                border: 30px solid red;
+                border-image: url('./timg.jpg');
+                border-image-slice: 50;
+                /* border-image-repeat:round; */
+
+                border-radius: 50%;
+            }
+        </style>
+    </body>
+</html>

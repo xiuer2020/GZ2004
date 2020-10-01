@@ -1,0 +1,5 @@
+/* components/helloworld/helloworld.wxss */
+
+.search {
+  border: 1px solid red;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #canvas {
+                /* border: 1px solid red; */
+                /* background: rgba(255, 166, 0, 0.246); */
+                /* width: 100px; */
+                /* animation: myrotate 0.8s linear infinite; */
+            }
+            @keyframes myrotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="100" height="100"></canvas>
+        <script>
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById("canvas");
+            // 获取canvas元素
+            var context = canvas.getContext("2d");
+            // 获取上下文
+            var n = 0;
+            setInterval(function() {
+                context.clearRect(0, 0, 100, 100);
+                n++;
+
+                context.beginPath();
+                context.arc(50, 50, 40, 0, 2 * Math.PI);
+                context.lineWidth = 20;
+                context.strokeStyle = "rgba(255, 166, 0, 0.25)";
+                context.stroke();
+                context.closePath();
+
+                context.beginPath();
+                context.arc(50, 50, 40, (n / 100) * Math.PI, (0.15 + n / 100) * Math.PI);
+                context.lineWidth = 20;
+                context.strokeStyle = "rgba(255, 166, 0, 1)";
+                context.stroke();
+                context.closePath();
+            }, 16.7);
+        </script>
+    </body>
+</html>

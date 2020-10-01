@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            // 释放$变量 替换成JQ
+            // var JQ = $.noConflict()
+            // var $ = 10
+            // $.fn
+        </script>
+
+        <input type="text" />
+        <input type="text" />
+        <script>
+            // jq插件开发 方法库拓展  // $.fn 对象有很多方法
+            $.fn.aaa = 10;
+            // $.fn.aaa
+            $.fn.xxx = function() {
+                
+            };
+            $.fn.input = function(func) {
+                // 
+                // this是jq对象 可能多个 遍历
+                this.each(function(index, element) {
+                    element.oninput = func;
+                });
+
+                // 链式写法原理
+                return this;
+            };
+            // this永远指向 这个方法 运行时 所挂在的对象
+
+            var x = $("input")
+                .input(function() {
+                    // 
+                    
+                })
+                .css("color", "red");
+
+            var y = $("input")
+                .click(function() {
+                    
+                })
+                .css("background", "lightblue");
+
+            // on off one
+        </script>
+    </body>
+</html>

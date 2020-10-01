@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0;}
+			div.wrap{position:relative;}
+			div.one{width:400px;height:400px;border:1px solid black;}
+			div.one>img{width:100%;}
+			div.two{width:400px;height:400px;border:1px solid purple;position:absolute;left:410px;top:0px;overflow:hidden;display:none;}
+			div.two>img{position:absolute;left:0px;top:0px;}
+			div.mask{width:200px;height:200px;background:rgba(152, 177, 206, 0.6);position:absolute;left:0px;top:0px;display:none;}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="one"><img src="yellow.jpg" alt=""></div>
+			<div class="mask"></div>
+			<div class="two"><img src="yellow.jpg" alt=""></div>
+		</div>
+		
+		<script>
+			var one = document.getElementsByClassName('one')[0];
+			var two = document.getElementsByClassName('two')[0];
+			var mask = document.getElementsByClassName('mask')[0];
+			var img = two.getElementsByTagName('img')[0];
+
+			one.onmouseover = function(e){
+				var ev = e || window.event;
+				
+				// 将放大的图片和小方块显示
+				two.style.display = 'block';
+				mask.style.display = 'block';
+				
+				// 设置小方块的初始位置
+				// 
+				// mask.style.left = ev.offsetX - 100 + 'px';
+				// mask.style.top = ev.offsetY - 100 + 'px';
+				
+				mask.style.left = ev.offsetX - mask.offsetWidth/2 + 'px';
+				mask.style.top = ev.offsetY - mask.offsetHeight/2 + 'px';
+			}
+			
+			mask.onmouseover = function(){
+				// 将放大的图片和小方块显示
+				two.style.display = 'block';
+				mask.style.display = 'block';
+				
+				mask.onmousemove = function(e){
+					var ev = e || window.event;
+					
+					// 实时计算mask的位置
+					// var aLeft = (ev.offsetX-100) + mask.offsetLeft;
+					// var aTop = (ev.offsetY-100) + mask.offsetTop;
+					
+					var aLeft = (ev.offsetX-mask.offsetWidth/2) + mask.offsetLeft;
+					var aTop = (ev.offsetY-mask.offsetHeight/2) + mask.offsetTop;
+					
+					// 判断是否超过one的范围
+					if(aLeft<=0){
+						aLeft = 0;
+					}
+					
+					// if(aLeft>=200){
+					// 	aLeft = 200;
+					// }
+					if(aLeft>=one.offsetWidth-mask.offsetWidth){
+						aLeft = one.offsetWidth-mask.offsetWidth;
+					}
+					
+					if(aTop<=0){
+						aTop = 0;
+					}
+					if(aTop>=one.offsetHeight-mask.offsetHeight){
+						aTop = one.offsetHeight-mask.offsetHeight;
+					}
+				
+					// 设置mask的位置
+					mask.style.left = aLeft + 'px';
+					mask.style.top = aTop + 'px';
+					
+					// 设置图片放大
+					// img.style.left = -2*(aLeft+100) + 200 +'px';
+					// img.style.top = -2*(aTop+100) + 200 +'px';
+					
+					// img.style.left = -2*aLeft+'px';
+					// img.style.top = -2*aTop+'px';
+					
+					img.style.left = -2*(aLeft+mask.offsetWidth/2) + two.offsetWidth/2 +'px';
+					img.style.top = -2*(aTop+mask.offsetHeight/2) + two.offsetHeight/2 +'px';
+					
+				}
+			}
+			
+			mask.onmouseout = function(){
+				// // 将放大的图片和小方块隐藏
+				two.style.display = 'none';
+				mask.style.display = 'none';
+			}
+		</script>
+	</body>
+</html>

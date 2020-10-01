@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #canvas {
+                border: 1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas" width="300" height="300"></canvas>
+
+        <script>
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById("canvas");
+            // 获取canvas元素
+            var context = canvas.getContext("2d");
+            // 获取上下文
+
+            // 
+            context.fillStyle = "red";
+            // 设置填充颜色
+            context.fillRect(100, 100, -100, 100);
+            // 填充矩形 fill 填充
+
+            // 画线条 路径
+            context.moveTo(0, 0);
+            context.lineTo(200, 100);
+            context.strokeStyle = "blue";
+            // 描边样式
+            context.lineWidth = "5";
+            // 描边宽度
+            context.stroke(); // 路径描边
+            context.closePath();
+            // 结束路径
+
+            // 画圆 void ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+            context.beginPath();
+            // 开始新的路径
+            context.arc(200, 200, 50, 0, (1 / 2) * Math.PI);
+            // context.stroke();
+            context.fill();
+
+            // 填充扇形
+
+            context.beginPath();
+            // context.moveTo(150, 150);
+            context.arc(150, 150, 50, 0, (1 / 2) * Math.PI, true);
+            context.fill();
+            // context.stroke()
+            context.closePath();
+        </script>
+    </body>
+</html>

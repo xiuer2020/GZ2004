@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*后代选择器 后代选择器选中的时候所有的子孙后代*/
+		div strong{
+			color:red;
+		}
+
+		/*子元素选择器 只能选中第一代儿子元素*/
+		/*选择器名*/
+		/* 选择器1>选择器2...{
+			
+		} */
+		div>strong{
+			border:1px solid blue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	    <strong>儿子</strong>
+	    <strong>儿子</strong>
+	</div>
+
+	<div>
+	    <p>
+	        <strong>孙子</strong>
+	        <strong>孙子</strong>
+	    </p>
+	</div>
+
+</body>
+</html>

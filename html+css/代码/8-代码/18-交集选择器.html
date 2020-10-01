@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/* .red{
+			color:red;
+		}
+		p{
+			border:1px solid red;
+		} */
+		/*即是什么标签,这个标签又具有什么类名或者什么id名*/
+
+		/*标签选择器类选择器 或者  标签选择器id选择器  两个选择器之间没有任何连接符号,也没有空格*/
+		p.red{
+			color:pink;
+		}
+
+		div{
+			color:orange;
+		}
+		div#blue{
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<!-- 需求:即是p标签,又是.red类的字体颜色设置为粉色 -->
+	<p class="red">红色</p>
+	<p class="red">红色</p>
+	<p class="red">红色</p>
+
+	<div class="red">红色</div>
+	<div class="red">红色</div>
+	<div class="red">红色</div>
+
+	<div>div的内容</div>
+	<div>div的内容</div>
+	<div>div的内容</div>
+
+	<p>蓝色</p>
+	<p>蓝色</p>
+	<p id="blue">蓝色</p>
+
+	<div id="blue">div的内容</div>
+</body>
+</html>

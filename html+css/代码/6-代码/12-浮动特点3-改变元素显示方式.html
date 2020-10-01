@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			/*我们没有给div设置宽度,直接浮动div*/
+			/*浮动会改变元素的显示方式,变成行内块特性,不独占一行,可以设置宽度高度,默认宽度由内容决定,并且他们之间没有间隙*/
+			float: left;
+		}
+		.one{
+			background: red;
+		}
+		.two{
+			background: green;
+		}
+		.three{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">1</div>
+	<div class="two">2</div>
+	<div class="three">3</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <!-- <div id="demo">
+            <button @click="show = !show">Toggle</button>
+            <transition name="fade">
+                <p v-if="show">hello</p>
+            </transition>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#demo",
+                data: {
+                    show: true,
+                },
+            });
+        </script>
+        <style>
+            .fade-enter-active,
+            .fade-leave-active {
+                transition: opacity 0.5s;
+            }
+            .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+                opacity: 0;
+            }
+        </style> -->
+
+        <!-- <div id="demo">
+            <button @click="show = !show">Toggle</button>
+            <transition>
+                <p v-if="show">hello</p>
+            </transition>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#demo",
+                data: {
+                    show: true,
+                },
+            });
+        </script>
+        <style>
+            p {
+                background: orange;
+            }
+            .v-enter {
+                background: green;
+            }
+            .v-enter-active {
+                transition: all 10s;
+            }
+            /* .v-enter-to {
+                background: red;
+            } */
+
+            .v-leave-active {
+                transition: all 3s;
+            }
+            .v-leave-to {
+                background: green;
+            }
+        </style> -->
+
+        <div id="demo">
+            <button @click="show = !show">Toggle</button>
+            <transition name="slide-fade">
+                <p v-if="show">hello</p>
+            </transition>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#demo",
+                data: {
+                    show: false,
+                },
+            });
+        </script>
+        <style>
+            #demo {
+                padding-left: 100px;
+                overflow: hidden;
+            }
+            .slide-fade-enter {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            .slide-fade-enter-active {
+                transition: all cubic-bezier(0.19, 0.54, 0.68, 1.32) 0.5s;
+            }
+
+            .slide-fade-leave-active {
+                transition: all 0.3s;
+            }
+            .slide-fade-leave-to {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+        </style>
+    </body>
+</html>

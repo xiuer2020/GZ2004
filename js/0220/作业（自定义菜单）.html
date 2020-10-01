@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0;list-style:none;}
+			div.sideBar{width:250px;height:300px;background:#eee;position:fixed;top:0px;left:0px;display:none;}
+			div.sideBar>ul>li{width:200px;height:40px;line-height:40px;padding:0px 25px;font-size:20px;}
+			div.sideBar>ul>li:hover{background:lightblue;}
+		</style>
+	</head>
+	<body>
+		<div class="sideBar">
+			<ul>
+				<li>剪切Ctrl+X</li>
+				<li>复制Ctrl+c</li>
+				<li>粘贴Ctrl+v</li>
+				<li>全选</li>
+				<li>清除格式</li>
+				<li>分享链接</li>
+			</ul>
+		</div>
+		<script>
+			document.onmousedown = function(e){
+				var ev = e || window.event;
+				var sideBar = document.getElementsByClassName('sideBar')[0];
+				// 获取鼠标的按键
+				
+				if(ev.button==2){
+					sideBar.style.display = 'block';
+					
+					// 设置右键菜单的位置
+					sideBar.style.left = ev.clientX + 'px';
+					sideBar.style.top = ev.clientY + 'px';
+				}else{
+					sideBar.style.display = 'none';
+				}
+			}
+			
+			// 当右键菜单打开时触发
+			document.oncontextmenu = function(e){
+				var ev = e || window.event;
+				
+				// 将本身的右键菜单栏取消(取消默认行为)
+				ev.preventDefault ? ev.preventDefault() : ev.returnValue = true;
+			}
+			
+
+		</script>
+	</body>
+</html>

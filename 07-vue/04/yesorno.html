@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" placeholder="type a qusetion" v-model="question" />
+            <hr />
+            <h1>{{result.answer}}</h1>
+            <img :src="result.image" alt="" />
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    question: "",
+                    result: {
+                        answer: "yes",
+                        forced: false,
+                        image: "https://yesno.wtf/assets/yes/7-653c8ee5d3a6bbafd759142c9c18d76c.gif",
+                    },
+                },
+                watch: {
+                    question: function (newValue) {
+                        if (newValue.indexOf("?") !== -1) {
+                            axios
+                                .get("https://yesno.wtf/api")
+                                .then((response) => {
+                                    // 
+                                    this.result = response.data;
+                                })
+                                .catch(function (error) {
+                                    
+                                });
+                        } else {
+                            this.result.answer = "需要一个问题";
+                        }
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>

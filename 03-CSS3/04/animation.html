@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="box">box</div>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background: red;
+                position: relative;
+                animation-name: myrotate;
+                animation-duration: 2s;
+                /* animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1.2); */
+                animation-timing-function: linear;
+
+                animation-fill-mode: forwards;
+                /* 动画结束状态使用哪一个状态  forwards*/
+                /* animation-delay: 1s; */
+                animation-iteration-count: infinite;
+                /* animation-direction: reverse; */
+                /* animation-direction: alternate; */
+                animation-play-state: running;
+                /* 暂停 移动端音乐播放器 */
+                /* https://music.163.com/m/song?id=1430652542&isofficial=1&playlistid=2819914042 */
+
+            }
+            @keyframes mymove {
+                from {
+                    left: 0;
+                }
+
+                to {
+                    left: 500px;
+                }
+            }
+            @keyframes myrotate {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+
+                }
+            }
+        </style>
+        <!-- 拓展 http://www.divcss5.com/css3-style/c50726.shtml -->
+    </body>
+</html>

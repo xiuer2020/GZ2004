@@ -1,0 +1,31 @@
+<!--pages/vant/vant.wxml-->
+
+
+<!-- 选项卡 -->
+<van-nav-bar>
+	<van-icon name="search" slot="right" />
+	<van-icon name="circle" slot="left" />
+	<van-tabs slot="title" active="{{ active }}"  color="#0F0" animated="{{true}}" bind:change="onChange">
+		<van-tab title="发现">
+
+
+		</van-tab >
+		<van-tab title="分类">
+			<van-grid column-num="2" border="{{ false }}" square>
+				<van-grid-item use-slot wx:for="{{cateList}}" data-cateid="{{item.cateid}}" bindtap="routeToPostsList">
+					<image style="width:100%" fit="cover" src="{{item.icon}}" />
+          <view><text>{{item.catename}}</text></view>
+				</van-grid-item>
+			</van-grid>
+
+		</van-tab>
+		<van-tab title="我的">内容 3</van-tab>
+	</van-tabs>
+</van-nav-bar>
+
+<!-- 遮罩 -->
+<van-overlay show="{{ show }}" bind:click="onClickHide">
+	<view class="wrapper">
+		<van-loading vertical color="#1989fa">加载中...</van-loading>
+	</view>
+</van-overlay>

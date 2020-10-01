@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- <script>
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    // 0 4
+                    // ajax请求完成了 完成
+                    if (xhr.status === 200) {
+                        // 服务器返回正常数据 成功
+                    }
+                    if (xhr.status === 404) {
+                        // 服务器找不到文件 失败
+                    }
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+
+            // $.ajax
+
+            // beforeSend(xhr)
+
+            // complete(xhr,status)
+            // success(result,status,xhr)
+            // error(xhr,status,error)
+        </script> -->
+        <button>btn</button>
+        <img class="loading" src="./loading.gif" alt="" />
+        <style>
+            .loading {
+                width: 100px;
+                display: none;
+            }
+        </style>
+        <script>
+            // 给未来的ajax请求定义默认值
+            $.ajaxSetup({
+                beforeSend: function(xhr) {
+                    
+                    $(".loading").show();
+                },
+                complete: function(xhr, status) {
+                    
+                    $(".loading").hide();
+                }
+            });
+            $("button").click(function(e) {
+                // 获取数据
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.apiopen.top/getImages",
+                    dataType: "json",
+                    success: function(response, status, xhr) {
+                        
+                    },
+                    error: function(xhr, status, error) {
+                        
+                    }
+                });
+            });
+
+            // $.get('./sites.json')
+        </script>
+    </body>
+</html>

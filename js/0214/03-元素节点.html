@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="box">
+			<li id="one">今天星期五</li>
+			<li>病房广场舞</li>
+			<li id="three">尽管心里苦</li>
+			<li>病患士气鼓</li>
+		</ul>
+		<select name="" id="">
+			<option value="">重庆</option>
+		</select>
+		
+		<script>
+			var box = document.getElementById('box')
+			
+			// 查看所有的子节点
+			
+			
+			
+			// 创建元素节点
+			var input = document.createElement('input');
+			
+			// appendChild()向指定节点追加一个子节点
+			box.appendChild(input)
+			
+			
+			// insertBefore()将元素添加到指定的节点之前
+			var one = document.getElementById('one');
+			var div = document.createElement('div');
+			// 给div添加内容
+			div.innerHTML = '赋诗一首';
+			box.insertBefore(div,one)
+			
+			
+			// replaceChild(替换后元素，替换前元素)
+			var three = document.getElementById('three');
+			var li = document.createElement('li');
+			li.innerHTML = '群众看热闹';
+			
+			box.replaceChild(li,three);
+			
+			
+			// 移除元素
+			setTimeout(function(){
+				box.removeChild(one);
+			},1500)
+			
+		</script>
+	</body>
+</html>

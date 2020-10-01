@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- <style>
+        .bigbox {
+            background: lightblue;
+            overflow: hidden;
+        }
+        .box {
+            float: left;
+            width: 200px;
+            height: 50px;
+            background: red;
+            margin: 20px;
+        }
+    </style> -->
+    </head>
+    <body>
+        <!-- <div class="bigbox">
+        <div class="box">box</div>
+        <div class="box">box</div>
+        <div class="box">box</div>
+
+        <div class="box" style="float: none; background: blue; height: 60px;">box</div>
+    </div> -->
+
+        <style>
+            .bigbox {
+                display: flex;
+                /* 默认水平排列 占一行 */
+                background: lightblue;
+                width: 500px;
+                height: 200px;
+
+                /* flex-direction: row; */
+                /* 默认从左到右 */
+                /* flex-direction: row-reverse; */
+                /* 水平反转 从右到左 */
+                /* 主轴为横轴 子项高度纵轴 默认100% */
+
+                /* flex-direction: column; */
+                /* 弹性盒子子元素排序方向 横轴 纵轴  主轴 侧轴*/
+                /* 主轴为纵轴 子项宽度 横轴默认100% */
+                /* flex-direction: column-reverse; */
+
+                /* 内容对齐（justify-content）属性应用在弹性容器上，
+                把弹性项沿着弹性容器的[主轴]线（main axis）对齐。 */
+                /* justify-content: flex-start; */
+                /* 默认  所有子项靠（左不确切） 主轴方向的起始位置*/
+                /* justify-content: flex-end; */
+                /* 所有子项靠（右不确切）主轴方向的结束位置 */
+                /* justify-content: center; */
+                /* 所有子项当成整体 主轴方向居中 主轴上自由空间均分*/
+
+                /* justify-content: space-between; */
+                /* start end 其他相邻项目的间隔相等 */
+                /* justify-content: space-around; */
+                /* 所有彼此间隔相等  所有盒子加margin 自由空间均分 */
+
+                /* align-items 设置或检索弹性盒子元素在侧轴（纵轴）方向上的对齐方式。 */
+                /* align-items: stretch; */
+                /* 默认侧轴尺寸父元素100% */
+                /* align-items: flex-start; */
+                /* 没有设置尺寸的使用 实际占用尺寸 侧轴start对齐  */
+                /* align-items: flex-end; */
+                /* 没有设置尺寸的使用 实际占用尺寸  侧轴end对齐 */
+                /* align-items: center; */
+                /* 没有设置尺寸的使用 实际占用尺寸  侧轴居中对齐 */
+
+            }
+            .box:nth-child(1) {
+                background: red;
+                /* width: 200px; */
+                height: 50px;
+
+            }
+            .box:nth-child(2) {
+                background: green;
+                height: 100px;
+            }
+            .box:nth-child(3) {
+                background: blue;
+            }
+            .box:nth-child(4) {
+                background: orange;
+            }
+            .box {
+                /* 子项默认侧轴方向尺寸 父元素100% */
+                /* width: 100px; */
+                /* height: 100px; */
+                /* flex: 1; */
+                /* 均分父元素宽度或高度  主轴尺寸 */
+                /* margin: 10px; */
+            }
+        </style>
+        <div class="bigbox">
+            <div class="box boxA">boxA</div>
+            <div class="box boxB">boxB</div>
+            <div class="box boxC">boxC</div>
+            <div class="box boxD">boxD</div>
+        </div>
+        <!-- 
+            大盒子 
+            display: flex
+            主轴（默认横轴） 侧轴（默认纵轴）
+            flex-direction 确定主轴
+            justify-content 确定主轴方向对齐方式 默认尺寸是实际占用
+            align-items 确定侧轴方向对齐方式 默认尺寸是拉伸父元素的100%
+
+            小盒子
+            flex:1 主轴尺寸
+
+         -->
+    </body>
+</html>

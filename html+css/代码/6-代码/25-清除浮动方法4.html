@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			background: #87ceeb;
+			/*父元素没有设置高度,父元素默认高度由内容决定*/
+		}
+		.father .son1{
+			width: 100px;
+			height: 50px;
+			background: #00d900;
+			color:white;
+			line-height: 50px;
+			/*第一个子元素浮动 脱标,不占位置*/
+			float: left;
+		}
+		.father .son2{
+			width: 200px;
+			height: 50px;
+			background: #016dd9;
+			color:white;
+			line-height: 50px;
+			/*第二个子元素浮动 脱标,不占位置*/
+			float: left;
+		}
+		.gebilaowang{
+			background: #99ffcd;
+			color:red;
+			height: 100px;
+			line-height: 100px;
+		}
+
+		/*使用after伪元素清除浮动  是额外标签法的升级版*/
+		/*定义一个清除浮动类 类名一般叫 .clearfix */
+		.clearfix::after{
+			/*content加个点是为兼容性,有些浏览器对CSS3伪元素选择器支持不好*/
+			content:".";
+			/*清除左右浮动*/
+			clear:both;
+			/*E::after默认是行内元素,所以需要转成块级元素,clear:both才可以生效*/
+			display: block;
+			/*设置可见性为hidden,也就是不可见内容的意思,但是还占据高度*/
+			visibility: hidden;
+			/*设置高度为0,解决visibility占据高度的位置*/
+			height: 0;
+		}
+		.clearfix{
+			/*解决IE浏览器兼容问题*/
+			*zoom:1;
+		}
+	</style>
+</head>
+<body>
+	<!-- 把清除浮动类加到浮动元素的父元素上面  多类名选择器 -->
+	<div class="father clearfix">
+		<div class="son1">子元素1</div>
+		<div class="son2">子元素2</div>
+	</div>
+
+
+	<div class="gebilaowang">隔壁王叔叔</div>
+</body>
+</html>

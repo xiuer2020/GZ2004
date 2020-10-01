@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			background: skyblue;
+			/*width: 100px;
+			height: 100px;*/
+			/*固定定位会改变元素的显示方式,具有行内块特性,可以设置宽度高度,默认宽度由内容决定*/
+
+			/*定位 = 定位模式 + 偏移量*/
+
+			position: fixed;
+			left: 0;
+			top: 0;
+
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+
+		}
+		.banner{
+			width: 1200px;
+			margin:0 auto;
+			height: 200px;
+			background: pink;
+			/*设置上外边距,解决被固定定位压住看不到的内容*/
+			margin-top: 50px;
+		}
+		.main{
+			width: 1200px;
+			margin:0 auto;
+			height: 300px;
+			background: orange;
+			margin-bottom: 2000px;
+		}
+		/*也可以给body设置上内填充,解决被固定定位压住看不到的内容*/
+		/* body{
+			padding-top: 50px;
+		} */
+	</style>
+</head>
+<body>
+	<span class="header">我是高级导航栏</span>
+	<div class="banner">轮播层</div>
+	<div class="main">主要内容层</div>
+</body>
+</html>

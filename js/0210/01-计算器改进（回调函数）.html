@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 加
+			function add(a,b){
+				return a+b;
+			}
+			
+			// 减法
+			function sub(a,b){
+				return a-b;
+			}
+			
+			// 乘法
+			function mul(a,b){
+				return a*b;
+			}
+			
+			// 除法
+			function divi(a,b){
+				return a/b;
+			}
+			
+			// 核心代码   
+			function calculator(a,b,method){
+				// switch(method){
+				// 	case '+':
+				// 		return add(a,b)
+				// 	break;
+				// 	case '-':
+				// 		return sub(a,b)
+				// 	break;
+				// 	case '*':
+				// 		return mul(a,b)
+				// 	break;
+				// 	case '/':
+				// 		return divi(a,b)
+				// 	break;
+				// 	default:
+				// 		return '该运算我还不会哟！'
+				// 	break;
+				// }
+				
+				
+				
+				// method是函数名    函数名()不就是函数的调用
+				// 此时的method就是sub函数    method(a,b)
+				return method(a,b);//add(a,b)
+			}
+			
+			// var res = calculator(4,5,'+')
+			// 
+			
+			// sub代表的是函数名   不能随意加上引号   不能加小括号
+			var res = calculator(4,5,add)
+			
+			
+			//
+		</script>
+	</body>
+</html>

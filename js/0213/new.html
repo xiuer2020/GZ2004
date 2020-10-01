@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>子窗口</h1>
+		<!-- onclick绑定点击事件 -->
+		<button onclick="changeColor(this)" value="red">红色</button>
+		<button onclick="changeColor(this)" value="green">绿色</button>
+		<button onclick="changeColor(this)" value="blue">蓝色</button>
+		<button onclick="opener.toldMySon()">调用父窗口方法</button>
+		
+		<script>
+			// opener 返回对创建子窗口的窗口的引用
+			function changeColor(obj){
+				
+				
+				// 改变父窗口的背景颜色
+				opener.document.bgColor = obj.value;
+				
+			}
+			
+			// 在子窗口内定义一个函数
+			function childSay(){
+				alert('我会好好听话的');
+			}
+			
+			
+			// 调用父窗口的方法
+			// opener.toldMySon()
+		</script>
+	</body>
+</html>

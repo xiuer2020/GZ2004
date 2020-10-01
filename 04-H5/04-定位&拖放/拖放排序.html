@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            ul li {
+                background: lightcoral;
+                margin: 10px 0;
+                /* padding-bottom: 10px; */
+                transition: all 0.3s;
+            }
+            ul li.draging {
+                border: 2px dashed gray;
+            }
+            ul li.dragover {
+                transform: scale(1.2);
+                background: green;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+            <li>item 5</li>
+        </ul>
+
+        <script>
+            var list = document.querySelector("ul");
+            var lis = document.querySelectorAll("ul li");
+            lis.forEach(function(li, index) {
+                // 设置可以拖动
+                li.draggable = true;
+                // 开始拖动
+                li.ondragstart = function(event) {
+                    event.dataTransfer.setData("Text", index);
+                    this.classList.add("draging");
+                };
+
+                // 监听拖动在上面
+                li.ondragover = function(event) {
+                    event.preventDefault();
+                    
+
+                    this.classList.add("dragover");
+                };
+                li.ondragleave = function(event) {
+                    event.preventDefault();
+
+                    this.classList.remove("dragover");
+                };
+
+                // 监听放
+                li.ondrop = function(event) {
+                    // event.preventDefault()
+                    var data = event.dataTransfer.getData("Text");
+                    
+                    // 拖动的元素 去掉拖动中样式
+                    lis[data].classList.remove("draging");
+                    this.classList.remove("dragover");
+
+                    list.insertBefore(lis[data], this.nextElementSibling);
+                };
+            });
+        </script>
+
+        <!-- 拓展 js拖拽拼图游戏 -->
+    </body>
+</html>

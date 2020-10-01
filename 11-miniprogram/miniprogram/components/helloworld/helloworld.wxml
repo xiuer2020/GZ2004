@@ -1,0 +1,8 @@
+<!--components/helloworld/helloworld.wxml-->
+<text bindtap="onTap">components/helloworld/helloworld.wxml</text>
+
+<!-- 数据监听器 -->
+<view>{{numberA}} + {{numberB}} = {{sum}}</view>
+
+<!-- 双向绑定 -->
+<input class="search" model:value="{{searchText}}" />

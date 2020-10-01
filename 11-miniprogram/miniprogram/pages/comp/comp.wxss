@@ -1,0 +1,5 @@
+/* pages/comp/comp.wxss */
+
+.red-text {
+  color: red;
+}

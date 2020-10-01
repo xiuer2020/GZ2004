@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <script>
+            var xx = function(n) {
+                return n * n;
+            };
+
+            
+
+            var x = xx(9);
+            
+
+            
+
+            // 同步执行
+        </script> -->
+        <!-- <script>
+            var xx = function(n) {
+                return n * n;
+            };
+
+            
+
+            setTimeout(function() {
+                var x = xx(9);
+                
+            }, 0);
+            // 定时器里面 异步代码 等页面所有同步代码执行完成
+
+            
+
+            // 异步执行
+        </script> -->
+
+        <!-- <script>
+            function fibonacci(n) {
+                if (n <= 1) {
+                    return 1;
+                }
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+            // 如果执行事件需要很长 阻塞 一定要等前面的代码运行完才会执行后面的
+
+            
+
+            var x = fibonacci(46);
+            
+
+            
+        </script> -->
+
+        <script>
+            function fibonacci(n) {
+                if (n <= 1) {
+                    return 1;
+                }
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+            // 斐波那契数列
+            // 如果执行事件需要很长 阻塞 一定要等前面的代码运行完才会执行后面的
+
+            
+
+            setTimeout(function() {
+                var x = fibonacci(40);
+                
+            }, 0);
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+/* pages/me/me.wxss */
+
+.active {
+  color: red;
+}

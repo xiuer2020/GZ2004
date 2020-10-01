@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .point {
+                width: 20px;
+                height: 20px;
+                background: red;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <script>
+            // 构造函数 => 类 一样一回事 class语法糖
+            function Point(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            Point.prototype.draw = function () {
+                var node = document.createElement("div");
+                node.className = "point";
+                node.style.left = this.x + 'px';
+                node.style.top = this.y + 'px';
+                document.body.appendChild(node);
+            };
+
+            var p = new Point(100, 100);
+            p.draw()
+            var p1 = new Point(200, 200)
+            p1.draw()
+        </script> -->
+
+        <script>
+            class Point {
+                // 构造器
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                }
+
+                // 实例方法 与原来定义在 Point.prototype 属性上一样
+                greet() {
+                    return this.x + " " + this.y;
+                }
+            }
+
+            Point.prototype.test = function () {
+                return this;
+            };
+            var p = new Point(100, 100);
+
+            // ES6 的类，完全可以看作构造函数的另一种写法。
+            // 类的数据类型就是函数，类本身就指向构造函数
+
+            p.constructor === Point;
+            // 类的prototype属性对象的constructor属性 指向 类本身
+            p.constructor === Point.prototype.constructor;
+            // 实例对象的属性方法 等同于 类的prototype属性的某个属性
+
+            // Object.assign方法可以很方便地一次向类添加多个方法
+            var obj = { name: "nick" };
+            var obj2 = Object.assign(obj, { age: 17 });
+            // Object.assign(obj, { age: 17 });duihao
+            // Object.assign返回一个拼合之后的对象 指针指向的还是 obj   √追加属性
+
+            // 
+            // {} === {} ===其实只是判断栈内存值
+            //  obj obj2 指向同一个堆内存
+
+            // 数组合并
+            var arr = [1, 2];
+            var arr2 = arr.concat([3, 4]);
+            // concat 返回一个新的数组
+
+            //  必须要有 constructor 如果没有默认会生成空的
+            class XXX {}
+
+            // 等同于
+            class YYY {
+                constructor() {}
+            }
+
+            // p instanceof Point
+            // instanceof 判读 p对象是否是由 Point 构造出来
+            // typeof instanceof 区别 typeof {} typeof []
+            if (typeof undefined) {
+                
+            } else {
+                
+            }
+            // 判断某个变量是不是数组都有哪些方法？
+        </script>
+
+        <script>
+            // class实例化 如果忘记加上new，像函数那样调用Class，将会报错
+            function Dot(x, y) {
+                // 
+                // this指向 实例化之后的实例对象
+                this.x = x;
+                this.y = y;
+
+                if (this instanceof Window) {
+                    return new Dot(x, y);
+                }
+            }
+            var d = new Dot(10, 20);
+            // var d = Dot(10, 20);
+        </script>
+
+        <script>
+            // 属性表达式
+            let methodName = "getArea";
+            class AAA {
+                // constructor 默认会生成一个空的
+                [methodName]() {
+                    return "AAA";
+                }
+            }
+            let a = new AAA();
+
+            // Class 表达式
+            const MyClass = class Me {
+                getClassName() {
+                    return Me.name;
+                }
+            };
+            // var m = new Me()
+            // Me 只能在类内部使用
+            var m = new MyClass();
+        </script>
+
+        <!-- <script>
+            // this 的指向
+
+            class Logger {
+                printName(name = "there") {
+                    
+                    this.print(`Hello ${name}`);
+                    // this 指向 这个类=>实例对象N个
+                    // this 指向 运行时所挂载的对象
+                }
+
+                print(text) {
+                    
+                }
+            }
+
+            const logger = new Logger();
+            // logger.printName();
+
+            const { printName } = logger;
+            //  解构出来 printName代码一样 但是this不一样了 是动态的
+            // printName();
+        </script> -->
+
+        <!-- <script>
+            // 绑定this 一
+
+            class Logger {
+                constructor() {
+                    this.printName = this.printName.bind(this);
+                }
+                printName(name = "there") {
+                    
+                    this.print(`Hello ${name}`);
+                    // this 指向 这个类=>实例对象N个
+                    // this 指向 运行时所挂载的对象
+                }
+
+                print(text) {
+                    
+                }
+            }
+
+            const logger = new Logger();
+            // logger.printName();
+
+            const { printName } = logger;
+            //  解构出来 printName代码一样 但是this不一样了 是动态的
+            // printName();
+        </script> -->
+
+        <script>
+            // 二 箭头函数 或者 that _this
+
+            class Logger {
+                constructor() {
+                    // 生成对象阶段 this一定指向 实例对象
+                    
+                    // 错误的
+                    // this.test = function () {
+                    //     
+                    // };
+                    // 方法1
+                    // var that = this;
+                    // this.test = function () {
+                    //     
+                    // };
+
+                    // 方法2
+                    this.test = () => {
+                        
+                        // 因为箭头函数没有this 这里的this应该 访问上级作用域的this
+                    };
+                }
+                printName(name = "there") {
+                    
+                    this.print(`Hello ${name}`);
+                }
+
+                print(text) {
+                    
+                }
+            }
+
+            const logger = new Logger();
+            // logger.printName();
+
+            const { printName } = logger;
+            //  解构出来 printName代码一样 但是this不一样了 是动态的
+            // printName();
+
+            let { test } = logger;
+        </script>
+    </body>
+</html>

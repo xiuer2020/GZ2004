@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// ^在[]内代表取反  除了0-9以外的字符
+			var pattern = /[^0-9]/;
+			var str = 6;
+			var res = pattern.exec(str)
+			
+			
+			var pattern = /^\d$/;
+			var str = 8;
+			var res = pattern.exec(str)
+			
+			
+			var pattern = /^\D$/;
+			var str = 6;
+			var res = pattern.exec(str)
+			
+			
+			// 用户名
+			var pattern = /^[A-Za-z_]\w{5,11}$/;
+			var str = 'myadmin';
+			var res = pattern.exec(str)
+			
+			
+			// 数字0-99 
+			/* 
+				一位数：0-9
+				两位数：10-99
+				
+			 */
+			
+			//   |或
+			var pattern = /^[0-9]$|^[1-9][0-9]$/;
+			var pattern = /^\d$|^[1-9]\d$/;
+			
+			/* 
+				1-120
+				
+				一位数：1-9
+				两位数：10-99
+				三位数：
+					情况一（100-119）： 1   第二位  0-1  第三位：0-9
+					情况二：120
+			 */
+			
+			var pattern = /^[1-9]$|^[1-9]\d$|^1[0-1]\d$|^120$/;
+			var str = 18;
+			var res = pattern.exec(str)
+			
+			
+		</script>
+	</body>
+</html>

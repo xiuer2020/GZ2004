@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父窗口和子窗口的操作(了解)</title>
+	</head>
+	<body onunload="closeAll()">
+		<!-- onclick绑定点击事件 -->
+		<button onclick="changeColor(this)" value="red">红色</button>
+		<button onclick="changeColor(this)" value="green">绿色</button>
+		<button onclick="changeColor(this)" value="blue">蓝色</button>
+		<button onclick="newWin.childSay()">调用子窗口方法</button>
+
+		<script>
+			var newWin = window.open('new.html','_blank','width=300,height=300,left=0,top=0');
+			
+			// 
+			
+			// 定义一个函数  通过父窗口改变子窗口的背景颜色
+			function changeColor(obj){
+				// 
+				// 设置子窗口背景样式
+				newWin.document.bgColor = obj.value;
+			}
+			
+			// 调用子窗口的函数  只能IE生效
+			// newWin.childSay()
+			
+			function toldMySon(){
+				alert('儿子要听话')
+			}
+			
+			// onload当页面加载完成后则触发该事件
+			window.onload = function(){
+				
+			}
+			
+			// 当父窗口关闭时,关闭所有的子窗口
+			function closeAll(){
+				// 判断子窗口是否关闭
+				if(!newWin.closed){
+					newWin.close();
+				}
+			}
+		</script>
+	</body>
+</html>

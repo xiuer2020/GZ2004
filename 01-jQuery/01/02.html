@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- $.fn.jquery -->
+        <!-- 一切都是对象 $函数 对象 
+        属性 -》 属性
+        属性是函数 -》 方法
+
+        jquery 暴漏全局变量 $ jQuery
+        jQuery === $ 同一个对象
+        其他的库 占用了$ 释放$控制权 给jquer换名字
+    -->
+
+        <div id="box">box</div>
+        <div id="boxA">boxA</div>
+
+        <!-- <script>
+        
+        // var domBox = document.getElementById('box')
+        var domBox = document.querySelector('#box')
+        domBox.style.color = 'red'
+        // 读写操作行间样式
+        
+        
+
+        // 基础语法： $(selector).action()
+        // selector 字符串 css选择器 .test p
+        var $boxA = $('#boxA')
+        // 类数组 对象 保存了DOM对象
+
+        // css() 方法设置或返回被选元素的一个或多个样式属性。
+        // css("propertyname");
+        // css("propertyname","value");
+
+        // 写入行间样式
+        $boxA.css('color','green') 
+        // 读取的计算之后的样式
+        
+
+        // 隐藏某个元素 两种方法对比
+        document.getElementById('box').style.display = 'none'
+        // $('#boxA').css('display', 'none')
+        $('#boxA').hide()
+
+        // dom对象 jquery 对象
+        // jquery对象=> dom对象  $('#boxA')[0]
+
+
+        
+
+
+    </script> -->
+
+        <ul>
+            <li>aaa</li>
+            <li>aaa</li>
+            <li>aaa</li>
+            <li>aaa</li>
+        </ul>
+        <script>
+            // jquery对象 DOM对象
+            var domBox = document.getElementById("box");
+            // domBox.css("color");
+            // domBox.css is not a function
+            // domBox.css undefined 原生对象压根就没有css这个属性
+            // dom对象不能使用 jq方法 因为没有
+
+            // 原生对象 => jq对象 $(dom)
+            $(domBox).css("color", "red");
+
+            var $boxA = $("#boxA");
+
+            // $boxA.style.color = 'green'
+            // Cannot set property 'color' of undefined
+            // jq对象 => 原生对象 意义不大
+            $boxA[0].style.color = "green";
+
+            document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+            // 四个全变 默认就会遍历
+            $("ul li").css("color", "blue");
+            // $boxA.eq(0) 返回的是jq对象 [0] 返回DOM对象
+            $("ul li")
+                .eq(0)
+                .css("color", "orange");
+            // $('ul li')[1].style.color = 'orange'
+
+            // $('#box') === $(document.getElementById('box'))
+
+            // 对象 栈内存和堆内存
+            var a = { name: "nick" };
+            var x = {
+                a: { name: "nick" }
+            };
+            a == x.a; // false
+            a.name == x.a.name;
+        </script>
+    </body>
+</html>

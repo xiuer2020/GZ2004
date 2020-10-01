@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*white-space设置或检索对象内文本显示方式。通常我们使用于强制一行显示内容 */
+		/*normal  : 　 默认处理方式*/
+		/*nowrap :  　强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行。*/
+		/*注意:也可以用来处理中文*/
+
+		/*自己的话来说: white-space一般用于设置文字是否强制一行显示 取值 normal默认处理方式 nowrap不换行,一行显示所有的内容*/
+		div{
+			background: pink;
+			width: 100px;
+			/*默认处理方式:中文会自动换行,其他内容都默认会一行显示*/
+			/*white-space:normal;*/
+			
+			/*nowrap不换行,一行显示所有的内容*/
+			white-space: nowrap;
+		}
+	</style>
+</head>
+<body>
+	<div>我和我的祖国我和我的祖国我和我的祖国我和我的祖国我和我的祖国我和我的祖国我和我的祖国</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var pattern = /abc/;
+			var str = '123abc456';//abc
+			var str = '1a2b3c';//null  不符合正则规则
+			var str = 'ab2c';//null
+			
+			// pattern.exec(str)检测str是否符合pattern的规则
+			var res = pattern.exec(str)
+			
+			
+			// 数字0-9   注意:每一个[]代表一个原子,[]内为可选字符
+			var pattern = /[0123456789]/;
+			var pattern = /[0-9]/;
+			var str = 0;
+			var res = pattern.exec(str);
+			
+			
+			// 任意一个字母
+			var pattern = /[A-Za-z]/;
+			var str = 'G';
+			var res = pattern.exec(str);
+			
+			
+			// 取出10-99的任意一个数
+			var pattern = /[1-9][0-9]/;
+			var str = 66;
+			var res = pattern.exec(str);
+			
+			
+			// 六位到十二位的用户名(用户名由数字、字母、下划线组成)
+			// var pattern = /[0-9A-Za-z_][0-9A-Za-z_][0-9A-Za-z_][0-9A-Za-z_][0-9A-Za-z_][0-9A-Za-z_]/;
+			// var pattern = /[0-9A-Za-z_]{6}/;//六位用户名
+			var pattern = /[0-9A-Za-z_]{6,12}/;//6-12位的用户名
+			
+			var str = 'myadmin';
+			var res = pattern.exec(str);
+			
+			
+			// {1,}代表重复匹配前面的原子一次以上
+			var pattern = /[0-9]{1,}/;
+			var str = 398;
+			var res = pattern.exec(str);
+			
+			
+			// 生成-9到9
+			var pattern = /-{0,1}[0-9]/;
+			var str = -6;
+			var res = pattern.exec(str);
+			
+		</script>
+	</body>
+</html>

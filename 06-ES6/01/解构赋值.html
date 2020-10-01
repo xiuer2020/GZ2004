@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 函数参数的解构赋值
+
+            // function add([x, y]) {
+            //     return x + y;
+            // }
+
+            // add([1, 2]); // 3
+
+            numbers = [4, 9, 16, 25];
+            var arr = numbers.map(function (n) {
+                return Math.sqrt(n);
+            });
+
+            var arr2 = [
+                [1, 2],
+                [3, 4],
+            ].map(function ([a, b]) {
+                return a + b;
+            });
+
+            // 函数参数解构对象
+
+            // es5 写法
+            // function move(obj) {
+            //     if (obj) {
+            //         // var x = obj.x || 0;
+            //         // var y = obj.y || 0;
+            //         var x = obj.x !== undefined ? obj.x : 0;
+            //         var y = obj.y !== undefined ? obj.y : 0;
+            //         return [x, y];
+            //     } else {
+            //         return [0, 0];
+            //     }
+            // }
+
+            // es6
+            function move({ x = 0, y = 0 } = {}) {
+                return [x, y];
+            }
+
+            // ❌错误
+            // function move({ x, y } = { x: 0, y: 0 }) {
+            //     return [x, y];
+            // }
+
+            move({ x: 5, y: 2 });
+            move({ x: 5 });
+            move({ y: 5 });
+            move({});
+            move();
+
+            move({ x: undefined, y: 5 });
+            // 如果传入的值就需要一个 null false
+            move({ x: false, y: 5 });
+            move({ x: null, y: 5 });
+            move({ x: NaN, y: 5 });
+        </script>
+    </body>
+</html>

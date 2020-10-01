@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.box{
+			width: 1226px;
+			height: 460px;
+			background:url(images/phone.jpg);
+			margin:0 auto;
+			/*父元素相对定位*/
+			position: relative;
+		}
+		.box span{
+			width: 40px;
+			height: 70px;
+			line-height: 70px;
+			text-align: center;
+			background: #f0f0f0;
+			/*子元素绝对定位*/
+			position: absolute;
+			top:50%;
+			margin-top: -35px;
+			font-size:30px;
+			color:#cccccc;
+		}
+		/*代表鼠标移上span标签以后的样式*/
+		.box span:hover{
+			background: #2d2d2d;
+		}
+		.box span:nth-child(1){
+			left:0;
+		}
+		.box span:nth-child(2){
+			right:0;
+		}
+		.box ul{
+			width: 270px;
+			height: 38px;
+			background: rgba(0,0,0,0.8);
+			border-radius: 20px;
+			/*子元素绝对定位*/
+			position: absolute;
+			left: 50%;
+			margin-left: -135px;
+			bottom:6px;
+		}
+		.box ul li{
+			width: 25px;
+			height: 25px;
+			background: white;
+			border-radius: 50%;
+			float: left;
+			margin-top: 6px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		.box ul li:first-child{
+			background: pink;
+		}
+		.box ul li:hover{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<!-- 左右箭头 -->
+		<span><</span>
+		<span>></span>
+		
+		<!-- 指示器 -->
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

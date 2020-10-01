@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button>btn</button>
+        <p></p>
+        <!-- <script>
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "./test.txt", false);
+            xhr.send()
+
+            
+            
+            // 同步写法 后面的代码 一定会等xhr完成 xhr.readyState == 4
+        </script> -->
+
+        <!-- <script>
+            
+
+            document.querySelector("button").onclick = function() {
+                
+            };
+            
+        </script> -->
+
+        <script>
+            document.querySelector("button").onclick = function() {
+                
+                getData()
+                
+            };
+
+            function getData() {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        // 完成 不等于成功 有可能服务器没找到 404
+                        
+                    }
+                };
+                // 异步拿数据 等多久不知道
+                // xhr.open("GET", "http://127.0.0.1:5500/01-ajax/test.txt", true);
+                // 同域
+                // xhr.open("GET", "https://www.runoob.com/try/ajax/demo_get.php", true);
+                xhr.open("GET", "https://www.runoob.com/try/demo_source/cd_catalog.xml", true);
+                // 跨域 需要 服务器授权
+                // Access to XMLHttpRequest at 'https://www.runoob.com/try/ajax/demo_get.php' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+                // 同源策略 假如可以 我的网站 可以ajax拿任意网站的数据 
+                // 网易新闻资讯内容全部拿下来
+                // 登录银行网页 钓鱼网页发起ajax请求转账
+                // cookie同源 不能跨域
+                xhr.send();
+
+                // http://127.0.0.1:5500/01-ajax/test.txt
+                // http 协议
+                // 127.0.0.1 ip 域名 www.baidu.com
+                // 5500 端口号 默认端口号是80浏览器会隐藏
+                // http://127.0.0.1:5500 协议，域名，端口
+                // 域名 baidu.com => DNS服务器 => ip
+            }
+            
+        </script>
+    </body>
+</html>

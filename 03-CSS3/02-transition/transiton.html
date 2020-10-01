@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <!-- 
+        私有前缀
+         -webkit- chrome sifari
+         -moz- firefox
+         -o- opera
+         -ms- ie
+     -->
+
+        <div class="box">box</div>
+        <style>
+            /* transition: property duration timing-function delay; */
+            .box {
+                width: 100px;
+                height: 100px;
+                background: red;
+                /* transition: width 2s, background 2s; */
+                /* transition: all 0.3s; */
+                transition: all 2s;
+
+            }
+            .box:hover {
+                width: 200px;
+                background: orange;
+                /* 有变化才会又动画 */
+            }
+        </style>
+
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <style>
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                background: lightblue;
+            }
+            li {
+                width: 50px;
+                height: 50px;
+                background: orange;
+                border: 1px solid blue;
+                position: relative;
+                left: 0;
+                top: 0;
+                /* 初始值默认不用写 这里只是为了配合过渡 */
+                transition: all 5s 0s;
+                /* cubic-bezier(0, 0, 0.88, 1.4) */
+                /* 超出1的 回弹动画 贝塞尔曲线编辑器*/
+            }
+            li:nth-child(1) {
+                /* transition-timing-function: linear; */
+                transition-timing-function: cubic-bezier(0.45,-0.24, 0.54, 1.22);
+            }
+            li:nth-child(2) {
+                transition-timing-function: ease;
+            }
+            li:nth-child(3) {
+                transition-timing-function: ease-out;
+            }
+            ul:hover li {
+                left: 500px;
+                /* width: 200px; */
+            }
+            /* 屠龙勇士变恶龙 */
+        </style>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*使用绝对定位实现子盒子在父盒子里水平垂直都居中*/
+		.father{
+			width: 500px;
+			height: 500px;
+			background: pink;
+			margin:100px auto;
+			/*第二步:给父元素设置相对定位*/
+			position: relative;
+		}
+		.father .son{
+			width: 100px;
+			height: 200px;
+			background: skyblue;
+			/*第一步:给子元素设置绝对定位*/
+			position: absolute;
+			/*第三步:设置偏移量的值为50% */
+			left: 50%;
+			top: 50%;
+			/*第四步:使用margin-left负自身宽度的一半*/
+			margin-left: -50px;
+			/*第五步:使用margin-top负自身高度的一半*/
+			margin-top: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son">子元素</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <ul>
+            <!-- <li onclick=handleclick(0)>item 1</li> -->
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+        <script>
+            // let var
+            // 1 多了块级作用域
+            // 2 let 不存在变量提升
+            // 12=>3 暂时性死区
+            // 4 不允许重复声明
+
+            // 块级作用域应用
+            // 1 内层变量覆盖了外层作用域
+            // 2 计数的循环变量泄露为全局变量
+        </script>
+
+        <!-- <script>
+            // es6 ECMAScript 6.0 es2015 es2019
+            // JavaScript JScript => ECMAScript
+            // ECMAScript JavaScript 前者是后者的规格，后者是前者的一种实现
+
+            // if (true) {
+            //     var a = 1;
+            //     let b = 2;
+            // }
+
+            // 老的作用域 全局window 局部函数内部
+            // 新增作用域 let块级作用域{}
+            // let声明的变量只在它所在的代码块有效
+
+            // for (var i = 0; i < 3; i++) {
+            //     
+            // }
+
+            // for (let i = 0; i < 3; i++) {
+            //     
+            // }
+            // 
+            // 计数器i只在for循环体内有效，在循环体外引用就会报错
+
+            // var lis = document.querySelectorAll("ul li");
+            // for (var i = 0; i < lis.length; i++) {
+            //     lis[i].onclick = function () {
+            //         
+            //         // 当点击的时候早就循环完了 i是全局变量
+            //     };
+            // }
+
+            // var lis = document.querySelectorAll("ul li");
+            // for (var i = 0; i < lis.length; i++) {
+            //     // 这里i是正常
+            //     lis[i].title = i;
+            //     lis[i].onclick = function () {
+            //         // 这里 i不正常
+            //         
+            //     };
+            // }
+
+            // function handleclick(n) {
+            //     
+            // }
+
+            // var lis = document.querySelectorAll("ul li");
+            // for (let i = 0; i < lis.length; i++) {
+            //     lis[i].onclick = function () {
+            //         
+            //         // [当点击的时候早就循环完了] i是全局变量
+            //     };
+            // }
+
+            // var a = [];
+            // for (var i = 0; i < 10; i++) {
+            //     a[i] = function () {
+            //         
+            //     };
+            // }
+            // 变量i是var命令声明的，在全局范围内都有效
+            // 所有数组a的成员里面的i，指向的都是同一个i
+
+            // var a = [];
+            // for (let i = 0; i < 10; i++) {
+            //     a[i] = function () {
+            //         
+            //     };
+            // }
+            // 变量i是let声明的，当前的i只在本轮循环有效，
+            // 所以每一次循环的i其实都是一个新的变量
+
+            for (let i = 0; i < 3; i++) {
+                // debugger
+                let i = "abc";
+                
+            }
+
+            // 设置循环变量的那部分是一个父作用域，
+            // 而循环体内部是一个单独的子作用域。
+            // 函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域。
+        </script> -->
+
+        <!-- <script>
+            // 
+            // // undefined 是因为有变量提升
+            // var a = 1
+
+            // var a
+            // // 声明变量 变量提升到最前面
+            // 
+            // a = 1
+            // // 变量赋值
+
+            // 
+            // a = 1;
+            // 有var 和没有var 区别
+            // 有var正常作用域 没var 全局作用域
+            // 没有var 就没有声明 就没有变量提升
+
+            // 
+            // let a = 1;
+            // Cannot access 'a' before initialization
+
+            // 一定要声明后使用，否则报错。
+        </script> -->
+
+        <script>
+            // var tmp = 123;
+            // if (true) {
+            //     
+            //     tmp = "abc";
+            //     var tmp;
+            //     
+            // }
+
+            // var tmp = 123;
+            // function xx() {
+            //     var tmp; // 提升到当前作用域最顶端
+            //     
+            //     tmp = "abc";
+            //     // var tmp; 这里需要提升 因为有作用域
+            //     
+            // }
+            // xx()
+
+            // 暂时性死区
+            // 在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”
+            // var tmp = 123;
+            // if (true) {
+            //     
+            //     // tmp是当前作用域里面的tmp
+            //     // 报错 声明之前使用
+            //     tmp = "abc";
+            //     let tmp;
+            //     // 因为这里用let 多了块级作用域
+            //     // let不存在变量提升
+            //     
+            // }
+
+            // if (true) {
+            //     // TDZ开始
+            //     tmp = "abc"; // ReferenceError
+            //     
+
+            //     let tmp; // TDZ结束
+            //     // 先从let确定 当前代码块{}是一个块级作用域 有暂时性死区概念
+            //     
+
+            //     tmp = 123;
+            //     
+            // }
+
+            // 
+            // 
+            // let x;
+
+            // 隐蔽的暂时性死区
+            // function bar(x = y, y = 2) {
+            //     return [x, y];
+            // }
+            // bar(); // 报错
+
+            // 先把y赋值给x 先使用了y 再把2赋值给y
+        </script>
+
+        <!-- <script>
+            // 只要有let 就不允许重复声明 
+            let a = 10;
+            // let a = 20;
+            // Identifier 'a' has already been declared
+
+            // a = 20
+
+            // var a = 20
+            // Identifier 'a' has already been declared
+
+            
+        </script> -->
+
+        <script>
+            // var tmp = new Date();
+
+            // function f() {
+            //     // var tmp 相当于提升到这里
+            //     
+            //     if (false) {
+            //         var tmp = "hello world";
+            //     }
+
+            //     // 函数内部作用域
+            //     // function g() {
+            //     //     var tmp = "hello world";
+            //     // }
+            //     // g()
+            // }
+
+            // f(); // undefined
+
+            // 内层变量覆盖了外层作用域
+
+            // var tmp = new Date();
+
+            // function f() {
+            //     
+            //     if (false) {
+            //         let tmp = "hello world";
+            //     }
+            //     // let tmp; // 暂时性死区
+            // }
+            // f();
+
+            // 计数的循环变量泄露为全局变量
+
+            // function f1() {
+            //     let n = 5;
+            //     if (true) {
+            //         n = 10;
+            //     }
+            //     
+            // }
+            // f1()
+        </script>
+
+        <script>
+            // const声明一个只读的常量。一旦声明，常量的值就不能改变。
+            // 1 多了块级作用域
+            // 2 const 不存在变量提升
+            // 3 const 不允许重新赋值
+            // 同样存在暂时性死区
+            // 3 不允许重复声明
+            // const a = 10;
+            // a = 20;
+
+            // const a = 10
+
+            // const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。
+            
+            var a = 10;
+            var o = {
+                name: "nick",
+                age: 17,
+            };
+            // 基本数据类型
+
+            const x = a;
+            // 顶层对象的属性
+            // let var 全局对象不同 var的全局变量挂载到 window对象
+            // let 顶层对象不再是window 而是global 浏览器有没有global 变量不再挂载到window对象下
+            // 从 ES6 开始，全局变量将逐步与顶层对象的属性脱钩。
+            const obj = o
+            // 复杂数据类型 这里只是复制了指针地址 和o指向同一个堆内存
+
+
+        </script>
+    </body>
+</html>

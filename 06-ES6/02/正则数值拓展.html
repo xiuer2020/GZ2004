@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var p = /xyz/gi;
+            var p1 = new RegExp(p, "i");
+
+            var p2 = new RegExp(/abc/gi, "i");
+
+            // window.isNaN() 数字布尔值 false 字符串 非数字  NaN true
+            // Number.isFinite(), Number.isNaN() 非数
+
+            // Number.parseInt(), Number.parseFloat()
+
+            // Number.isInteger()用来判断一个数值是否为整数。
+            Number.isInteger(3.0000000000000002); // true
+            // 0.1 + 0.2 == 0.3
+            // Math.abs(0.3- (0.1+0.2)) < 0.0000000001
+            // 9.8 * 7 68.60000000000001
+            // 把浮点转成整形 0.1 *10 + 0.2 *10 = (0.1 + 0.2) * 10
+
+            Number.MIN_VALUE // js最小值
+            Number.EPSILON // ji差值精度 1=>大于1 的最小值
+
+            // Math.trunc()
+            // Math.sign() 
+
+        </script>
+    </body>
+</html>

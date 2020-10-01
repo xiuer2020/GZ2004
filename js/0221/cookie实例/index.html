@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0;}
+			ul{list-style:none;}
+			a{text-decoration:none;}
+			div.wrap{width:920px;margin:0 auto;}
+			div.goods::after{display:block;content:"";clear:both;}
+			div.goods>ul{width:920px;margin:0 auto;}
+			div.goods>ul>li{width:220px;height:350px;float:left;margin:5px;padding:0px 10px;box-sizing:border-box;border:1px solid transparent;}
+			div.goods>ul>li:hover{border:1px solid #eee;}
+			div.goods>ul>li>img{width:200px;}
+			div.goods>ul>li>h4{color:#E5393C;}
+			div.goods>ul>li>div{font-size:12px;color:#666666;height:60px;}
+			div.goods>ul>li>div:hover{color:red;}
+			div.goods>ul>li>p{font-size:12px;color:#999999;}
+			div.goods>ul>li>p>span{color:#646FB0;}
+			div.goods>ul>li>span{font-size:12px;display:inline-block;}
+			div.goods>ul>li>span.txt1{color:#E23A3A;border:1px solid #E23A3A;border-radius:2px;}
+			div.goods>ul>li>span.txt2{color:#4D88FF;border:1px solid #4D88FF;border-radius:2px;}
+			div.goods>ul>li>span.txt3{color:white;background:#4B9BFC;border-radius:2px;}
+			div.goods>ul>li>a{float:right;color:white;background:red;font-size:14px;padding:3px;border-radius:5px;}
+			a.account{display:inline-block;width:120px;height:50px;background:orange;border-radius:5px;float:right;color:white;text-align:center;line-height:50px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="goods">
+				<ul>
+					<li>
+						<img src="images/1.jpg" alt="">
+						<h4>￥168.00</h4>
+						<div>羊家旺 宁夏盐池滩羊肉 生鲜羊排条礼盒 火锅 烧烤食材羊肉牛羊排骨清真 精修精</div>
+						<p><span>1100+</span>条评价</p>
+						<p>羊家旺生鲜旗舰店</p>
+						<span class="txt1">赠</span>
+						<span class="txt2">放心购</span>
+						<span class="txt3">险</span>
+						<a href="javascript:void(0)" onclick="addCart(this)">加入购物车</a>
+					</li>
+					<li>
+						<img src="images/2.jpg" alt="">
+						<h4>￥258.00</h4>
+						<div>【京东秒杀159元】今聚鲜 原肉整切微腌1500g/十片澳洲厚切雪花牛排套餐眼肉西冷儿童黑椒牛肉生鲜</div>
+						<p><span>1100+</span>条评价</p>
+						<p>羊家旺生鲜旗舰店</p>
+						<span class="txt1">赠</span>
+						<span class="txt2">放心购</span>
+						<span class="txt3">险</span>
+						<a href="javascript:void(0)" onclick="addCart(this)">加入购物车</a>
+					</li>
+					<li>
+						<img src="images/3.jpg" alt="">
+						<h4>￥88.00</h4>
+						<div>【2件9折 3件8折】正宗陕西富平柿饼500g挂霜柿饼 新鲜 吊柿子饼 独立</div>
+						<p><span>1100+</span>条评价</p>
+						<p>羊家旺生鲜旗舰店</p>
+						<span class="txt1">赠</span>
+						<span class="txt2">放心购</span>
+						<span class="txt3">险</span>
+						<a href="javascript:void(0)" onclick="addCart(this)">加入购物车</a>
+					</li>
+					<li>
+						<img src="images/4.jpg" alt="">
+						<h4>132.00</h4>
+						<div>翔泰 冷冻二去金鲳鱼700g2条去鳃去内脏 深海大牧场 BAP认证全程可</div>
+						<p><span>1100+</span>条评价</p>
+						<p>羊家旺生鲜旗舰店</p>
+						<span class="txt1">赠</span>
+						<span class="txt2">放心购</span>
+						<span class="txt3">险</span>
+						<a href="javascript:void(0)" onclick="addCart(this)">加入购物车</a>
+					</li>
+				</ul>
+			</div>
+			<hr>
+			<a href="结算.html" class="account">购物车</a>
+		</div>
+		<script>
+			// 封装的设置缓存
+			function setCookie(name,value,minutes){
+				var now = new Date();
+				now.setMinutes(now.getMinutes()+minutes);
+				
+				// 设置cookie
+				document.cookie = name+'='+value+';expires='+now.toUTCString();
+			}
+			
+			
+			console.log(document.cookie)
+			// 判断是否存在缓存
+			if(document.cookie){
+				var cookie = document.cookie.split('=')[1];
+				var arr = JSON.parse(cookie)
+			}else{
+				// 定义一个数组,接收所有加入购物车的商品
+				var arr = []
+			}
+			
+			var flag = true;
+			
+			function addCart(obj){
+				// 获取当前点击的li
+				var Li = obj.parentNode;
+		
+				var img = Li.getElementsByTagName('img')[0]
+				var h4 = Li.getElementsByTagName('h4')[0]
+				var price = h4.innerHTML.slice(1);
+				var name = Li.getElementsByTagName('div')[0].innerHTML;
+		
+				
+				// 假设这个值已经有了
+				var list = {
+					img:img.src,
+					name:name,
+					price:price,
+					num:1
+				}
+				console.log(list)
+				
+				
+				if(arr.length){
+					// 判断该商品是否已加入购物车
+					arr.forEach(function(item){
+						console.log(item.name == name)
+						if(item.name == name){
+							item.num++;
+							// 设置标志位   方便查看是否已存在商品
+							flag = false;
+						}
+						
+					})
+					
+					// 购物车内不存在则添加
+					if(flag){
+						arr.push(list)
+					}
+				}else{
+					arr.push(list)
+				}
+				
+				// JSON.stringify()转换为字符串
+				var goodsList = JSON.stringify(arr)
+				console.log(goodsList)
+				
+				// 设置cookie
+				setCookie('shopList',goodsList,60);
+			}
+		</script>
+	</body>
+</html>
+
+		
+

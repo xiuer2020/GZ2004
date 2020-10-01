@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+        <title>Document</title>
+    </head>
+    <body>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+        </ul>
+
+        <script>
+            // $("ul li").css("color", "red");
+            // $("ul li").eq(0).css("color", "red").end()
+            // 选择器 遍历器 区别 遍历器可以回退
+            // $("ul li:first").css("color", "red");
+            // $("ul li:last").css("color", "red");
+
+            // 遍历方法
+            // $("ul li")
+            //     .eq(0)
+            //     .css("color", "red")
+            //     .end()
+            //     .eq(2)
+            //     .css("color", "red");
+
+            $("ul li")
+                .first()
+                .css("color", "red")
+                .end()
+                .last()
+                .css("color", "red");
+        </script>
+
+        <ul class="table">
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li><i>item 4</i></li>
+        </ul>
+        <script>
+            lis = document.querySelectorAll("ul.table li");
+            lis.forEach(function(element, index) {
+                if (index % 2 == 0) {
+                    element.style.color = "red";
+                }
+            });
+
+            $("ul.table li:odd").css("color", "green");
+            $("ul.table li:gt(1)").css("background", "yellow");
+
+            $("ul.table li:not(:nth-child(2))").css("border", "1px solid red");
+
+            function xxx() {
+                $("ul.table li")
+                    .eq(1)
+                    .css("background", "red")
+                    .animate(
+                        {
+                            width: "100px"
+                        },
+                        1000
+                    )
+                    .animate(
+                        {
+                            width: "100%"
+                        },
+                        1000,
+                        xxx
+                    );
+            }
+            xxx()
+
+            $(':animated').css('background', 'yellow')
+
+            $('ul li:contains(4)').css('color', 'black')
+            // $('ul li:has(i)').css('color', 'black')
+        </script>
+    </body>
+</html>

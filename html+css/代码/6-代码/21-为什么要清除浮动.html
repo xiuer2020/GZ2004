@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			background: #87ceeb;
+			/*父元素没有设置高度,父元素默认高度由内容决定*/
+		}
+		.father .son1{
+			width: 100px;
+			height: 50px;
+			background: #00d900;
+			color:white;
+			line-height: 50px;
+			/*第一个子元素浮动 脱标,不占位置*/
+			float: left;
+		}
+		.father .son2{
+			width: 200px;
+			height: 50px;
+			background: #016dd9;
+			color:white;
+			line-height: 50px;
+			/*第二个子元素浮动 脱标,不占位置*/
+			float: left;
+		}
+		.gebilaowang{
+			background: #99ffcd;
+			color:red;
+			height: 100px;
+			line-height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">子元素1</div>
+		<div class="son2">子元素2</div>
+	</div>
+
+	<div class="gebilaowang">隔壁王叔叔</div>
+</body>
+</html>

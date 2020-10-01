@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="100" height="100"></canvas>
+        <script>
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById("canvas");
+            // 获取canvas元素
+            var context = canvas.getContext("2d");
+
+            var zoom = true;
+            var minR = 30;
+            var maxR = 50;
+            var n = 0;
+            var count = 2;
+
+            setInterval(function() {
+                context.clearRect(0, 0, 100, 100);
+                if (n < 100) {
+                    n += count;
+                } else {
+                    n = 0;
+                }
+
+                var r = minR + ((maxR - minR) * n) / 100;
+                var o = 1 - n / 100;
+
+                context.beginPath();
+                context.arc(50, 50, 20, 0, 2 * Math.PI);
+                context.fillStyle = "rgba(255, 166, 0, 1)";
+                context.fill();
+                context.closePath();
+
+                context.beginPath();
+                context.arc(50, 50, r, 0, 2 * Math.PI);
+                context.lineWidth = 1;
+                context.strokeStyle = "rgba(255, 166, 0, " + o + ")";
+                context.stroke();
+                context.closePath();
+            }, 30);
+        </script>
+
+        <input type="number" name="" id="" />
+        <button>btn</button>
+
+        <script>
+            // 创建worker
+            var w = new Worker("./worker.js");
+
+            function calc(n) {
+                // 向worker.js发送信息
+                w.postMessage(n);
+
+                // 监听worker
+                w.onmessage = function(event) {
+                    
+
+                    // 终止 worker
+                    // w.terminate();
+                };
+                
+            }
+            document.querySelector("button").onclick = function() {
+                var n = document.querySelector("input").value;
+                
+
+                calc(n);
+            };
+        </script>
+
+        <!-- <button onclick="alert('click')">btn</button>
+        <script>
+            // 创建worker
+            var w = new Worker("./worker.js");
+
+            // 监听worker
+            w.onmessage = function(event) {
+                
+
+                // 终止 worker
+                // w.terminate();
+            };
+        </script> -->
+
+        <!-- 主线程 43==>子线程通知 计算后的值 => 主线程通知 大数据运算量高CPU可能造成卡顿的 -->
+
+        <!-- 作业 拓展 -->
+        <!-- http://www.jq22.com/yanshi22444 -->
+        <!-- http://www.jq22.com/yanshi17653 -->
+        <!-- http://www.jq22.com/yanshi19009 -->
+    </body>
+</html>

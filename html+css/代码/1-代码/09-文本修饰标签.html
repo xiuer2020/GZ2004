@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 文本修饰标签主要用于修饰文本 -->
+
+	<!-- font标签,可以用于改变字体颜色,字体大小以及字体名称(何种字体) -->
+	<!-- font标签后续会使用css样式代替 了解即可 -->
+	<!-- 
+		属性
+			color设置字体颜色,取值网页颜色值 英文颜色单词 rgb  十六进制
+			rgb在css样式中使用没有兼容问题,在font标签里面使用,只有IE浏览器支持
+			red,blue,green,black,white,orange,yellow...
+
+			十六进制  由# 0~9 A~F组成  一般是6位  或者 3位
+
+			size设置字体大小 取值1~7 默认3
+			face设置字体名称 取值 字体名称
+	 -->
+	<font color="red">张三</font>
+	<font color="rgb(255,0,0)">张三</font>
+	<font color="#f92672">李四</font>
+	<font color="#ff0000">李四</font>
+	<font color="#f00">简写李四 但是简写IE不支持</font>
+
+	<font size="7">王五</font>
+	<font size="2">王五</font>
+	<font size="3">王五</font>
+
+	<!-- 一个标签可以同时使用多个属性 属性之间使用空格隔开即可-->
+	<!-- 网页中一般使用的字体是宋体或者微软雅黑 -->
+	<font color="blue" size="7">赵六</font>
+	<font color="blue" size="7" face="微软雅黑">赵六</font>
+	<font color="blue" size="7" face="宋体">赵六</font>
+	<font color="blue" size="7" face="楷体">赵六</font>
+	<font color="blue" size="7" face="仿宋">赵六</font>
+</body>
+</html>
