@@ -1,0 +1,4 @@
+body {
+    background: lightblue url("./demo.jpg");
+    background-size: 100px 100px;
+}

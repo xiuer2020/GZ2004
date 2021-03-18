@@ -1,8 +1,8 @@
-import person from "./test.js";
+let name = "锋哥";
 export default {
-    name: person,
+    name,
     age: 17,
-    speak: function() {
+    speak: function () {
         return 1 + 1;
     }
 };
